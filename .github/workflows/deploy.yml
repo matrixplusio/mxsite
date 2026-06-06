@@ -42,6 +42,7 @@ jobs:
         uses: actions/setup-go@v5
         with:
           go-version: "1.23"
+          cache: false
 
       - name: Install npm dependencies
         run: npm ci || npm install
@@ -49,14 +50,37 @@ jobs:
       - name: Build site
         run: npm run build
 
+      - name: Verify deploy secrets are set
+        env:
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_USER: ${{ secrets.SSH_USER }}
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
+        run: |
+          missing=""
+          [ -z "$SSH_HOST" ]        && missing="$missing SSH_HOST"
+          [ -z "$SSH_USER" ]        && missing="$missing SSH_USER"
+          [ -z "$SSH_PRIVATE_KEY" ] && missing="$missing SSH_PRIVATE_KEY"
+          [ -z "$DEPLOY_PATH" ]     && missing="$missing DEPLOY_PATH"
+          if [ -n "$missing" ]; then
+            echo "::error::Missing required repository secrets:$missing"
+            echo "Configure them at: Settings → Secrets and variables → Actions"
+            exit 1
+          fi
+          echo "All required secrets are set."
+
       - name: Configure SSH
+        env:
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_PORT: ${{ secrets.SSH_PORT }}
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         run: |
           mkdir -p ~/.ssh
           chmod 700 ~/.ssh
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
+          printf '%s\n' "$SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
           chmod 600 ~/.ssh/id_ed25519
-          SSH_PORT="${{ secrets.SSH_PORT }}"
-          ssh-keyscan -H -p "${SSH_PORT:-22}" "${{ secrets.SSH_HOST }}" >> ~/.ssh/known_hosts 2>/dev/null
+          PORT="${SSH_PORT:-22}"
+          ssh-keyscan -H -p "$PORT" "$SSH_HOST" >> ~/.ssh/known_hosts
 
       - name: Deploy via rsync
         env:
