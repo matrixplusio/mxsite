@@ -1,0 +1,316 @@
+{{ define "main" }}
+
+  {{/* ----- Title + intro ----- */}}
+  <section class="pt-20 pb-10">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="md:col-10 lg:col-9 xl:col-8 text-center">
+          <h1 class="text-h2 lg:text-h1 font-bold mb-4">{{ .Title }}</h1>
+          {{ with .Params.description }}
+            <p class="text-text-light dark:text-darkmode-text-light text-lg max-w-2xl mx-auto">{{ . }}</p>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {{/* ----- Stats band ----- */}}
+  {{ with .Params.stats }}
+    <section class="py-14 text-white relative overflow-hidden mb-16"
+             style="background: linear-gradient(120deg, #4338CA 0%, #4F46E5 50%, #6366F1 100%);">
+      <div class="absolute inset-0 pointer-events-none opacity-20"
+           style="background-image: radial-gradient(circle at 10% 30%, rgba(255,255,255,0.6) 0, transparent 30%), radial-gradient(circle at 90% 70%, rgba(255,255,255,0.4) 0, transparent 35%);"></div>
+      <div class="container relative">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-y-10 gap-x-6">
+          {{ range . }}
+            <div class="text-center">
+              <div class="text-4xl lg:text-5xl font-bold mb-2 tracking-tight">{{ .value }}</div>
+              <div class="text-sm lg:text-base text-white/80">{{ .label }}</div>
+            </div>
+          {{ end }}
+        </div>
+      </div>
+    </section>
+  {{ end }}
+
+  {{/* ----- Culture / how we work ----- */}}
+  {{ with .Params.culture }}
+    <section class="pb-20">
+      <div class="container">
+        <div class="row justify-center mb-12">
+          <div class="md:col-10 text-center">
+            <h2 class="text-h3 font-bold mb-3">{{ $.Params.culture_title | default "我们怎么工作" }}</h2>
+            {{ with $.Params.culture_subtitle }}
+              <p class="text-text-light dark:text-darkmode-text-light text-lg">{{ . }}</p>
+            {{ end }}
+          </div>
+        </div>
+        <div class="grid md:grid-cols-2 gap-6">
+          {{ range . }}
+            <div class="flex gap-4 rounded-2xl border border-border dark:border-darkmode-border p-6">
+              <div class="shrink-0 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 dark:bg-darkmode-primary/10 text-primary dark:text-darkmode-primary font-bold text-sm">
+                {{ .index }}
+              </div>
+              <div>
+                <h3 class="font-semibold mb-1">{{ .title }}</h3>
+                <p class="text-text-light dark:text-darkmode-text-light text-sm leading-relaxed">{{ .description }}</p>
+              </div>
+            </div>
+          {{ end }}
+        </div>
+      </div>
+    </section>
+  {{ end }}
+
+  {{/* ----- Ladder (B / M dual track) ----- */}}
+  {{ if or .Params.ladder_ic .Params.ladder_mgmt }}
+    <section class="pb-20">
+      <div class="container">
+        <div class="row justify-center mb-12">
+          <div class="md:col-10 text-center">
+            <h2 class="text-h3 font-bold mb-3">{{ .Params.ladder_title | default "职级与晋升体系" }}</h2>
+            {{ with .Params.ladder_subtitle }}
+              <p class="text-text-light dark:text-darkmode-text-light text-lg">{{ . }}</p>
+            {{ end }}
+          </div>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-6">
+          {{ with .Params.ladder_ic }}
+            <div class="rounded-2xl border border-border dark:border-darkmode-border p-6">
+              <div class="text-primary dark:text-darkmode-primary text-xs font-semibold tracking-widest uppercase mb-2">{{ $.Params.ladder_ic_tag | default "B · 个人贡献者" }}</div>
+              <h3 class="text-h5 font-bold mb-5">{{ $.Params.ladder_ic_title | default "技术与业务的纵深之路" }}</h3>
+              <ol class="space-y-3 text-sm">
+                {{ range . }}
+                  <li class="flex items-start gap-3">
+                    <span class="shrink-0 inline-flex h-8 w-12 items-center justify-center rounded-md bg-primary/10 dark:bg-darkmode-primary/10 text-primary dark:text-darkmode-primary text-xs font-bold tracking-wider">{{ .level }}</span>
+                    <div class="flex-1">
+                      <div class="font-semibold">{{ .name }}{{ with .years }} <span class="text-text-light dark:text-darkmode-text-light font-normal text-xs ml-1">· {{ . }}</span>{{ end }}</div>
+                      <div class="text-text-light dark:text-darkmode-text-light text-xs leading-relaxed">{{ .desc }}</div>
+                    </div>
+                  </li>
+                {{ end }}
+              </ol>
+            </div>
+          {{ end }}
+
+          {{ with .Params.ladder_mgmt }}
+            <div class="rounded-2xl border border-border dark:border-darkmode-border p-6">
+              <div class="text-primary dark:text-darkmode-primary text-xs font-semibold tracking-widest uppercase mb-2">{{ $.Params.ladder_mgmt_tag | default "M · 管理" }}</div>
+              <h3 class="text-h5 font-bold mb-5">{{ $.Params.ladder_mgmt_title | default "组织与战略之路" }}</h3>
+              <ol class="space-y-3 text-sm">
+                {{ range . }}
+                  <li class="flex items-start gap-3">
+                    <span class="shrink-0 inline-flex h-8 w-12 items-center justify-center rounded-md bg-primary/10 dark:bg-darkmode-primary/10 text-primary dark:text-darkmode-primary text-xs font-bold tracking-wider">{{ .level }}</span>
+                    <div class="flex-1">
+                      <div class="font-semibold">{{ .name }}{{ with .scope }} <span class="text-text-light dark:text-darkmode-text-light font-normal text-xs ml-1">· {{ . }}</span>{{ end }}</div>
+                      <div class="text-text-light dark:text-darkmode-text-light text-xs leading-relaxed">{{ .desc }}</div>
+                    </div>
+                  </li>
+                {{ end }}
+              </ol>
+            </div>
+          {{ end }}
+        </div>
+
+        {{ with .Params.ladder_rules }}
+          <div class="mt-8 rounded-2xl border border-dashed border-border dark:border-darkmode-border p-6">
+            <div class="text-xs uppercase tracking-wider text-text-light dark:text-darkmode-text-light font-semibold mb-3">
+              {{ $.Params.ladder_rules_title | default "双通道与晋升规则" }}
+            </div>
+            <ul class="space-y-2 text-sm">
+              {{ range . }}
+                <li class="flex items-start gap-2">
+                  <span class="text-primary dark:text-darkmode-primary mt-0.5 shrink-0">▸</span>
+                  <span>{{ . | markdownify }}</span>
+                </li>
+              {{ end }}
+            </ul>
+          </div>
+        {{ end }}
+      </div>
+    </section>
+  {{ end }}
+
+  {{/* ----- Benefits ----- */}}
+  {{ with .Params.benefits }}
+    <section class="pb-20">
+      <div class="container">
+        <div class="row justify-center mb-12">
+          <div class="md:col-10 text-center">
+            <h2 class="text-h3 font-bold mb-3">{{ $.Params.benefits_title | default "工作环境与福利" }}</h2>
+            {{ with $.Params.benefits_subtitle }}
+              <p class="text-text-light dark:text-darkmode-text-light text-lg">{{ . }}</p>
+            {{ end }}
+          </div>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {{ range . }}
+            <div class="rounded-2xl border border-border dark:border-darkmode-border p-6">
+              <div class="text-2xl mb-3">{{ .icon }}</div>
+              <h3 class="font-semibold mb-1">{{ .title }}</h3>
+              <p class="text-text-light dark:text-darkmode-text-light text-sm leading-relaxed">{{ .description }}</p>
+            </div>
+          {{ end }}
+        </div>
+      </div>
+    </section>
+  {{ end }}
+
+  {{/* ----- Open positions ----- */}}
+  <section class="pb-20">
+    <div class="container">
+      <div class="row justify-center mb-10">
+        <div class="md:col-10 text-center">
+          <h2 class="text-h3 font-bold mb-3">{{ .Params.positions_title | default "开放岗位" }}</h2>
+          {{ with .Params.positions_subtitle }}
+            <p class="text-text-light dark:text-darkmode-text-light text-base">{{ . }}</p>
+          {{ end }}
+        </div>
+      </div>
+
+      {{ with .Params.positions }}
+        <div class="space-y-3">
+          {{ range . }}
+            <details class="group rounded-2xl border border-border dark:border-darkmode-border hover:border-primary dark:hover:border-darkmode-primary transition overflow-hidden">
+              <summary class="list-none cursor-pointer p-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                <div class="flex-1">
+                  <div class="flex flex-wrap items-center gap-2 mb-1">
+                    <span class="text-primary dark:text-darkmode-primary text-xs font-semibold tracking-widest uppercase">{{ .team }}</span>
+                    {{ with .type }}<span class="text-[11px] font-medium px-2 py-0.5 rounded-full bg-text-light/10 text-text-light dark:text-darkmode-text-light">{{ . }}</span>{{ end }}
+                    {{ with .location }}<span class="text-[11px] font-medium px-2 py-0.5 rounded-full bg-text-light/10 text-text-light dark:text-darkmode-text-light">📍 {{ . }}</span>{{ end }}
+                    {{ with .salary }}<span class="text-[11px] font-medium px-2 py-0.5 rounded-full bg-primary/10 text-primary dark:bg-darkmode-primary/10 dark:text-darkmode-primary">💼 {{ . }}</span>{{ end }}
+                  </div>
+                  <h3 class="text-h6 font-bold mb-1">{{ .title }}</h3>
+                  {{ with .description }}
+                    <p class="text-text-light dark:text-darkmode-text-light text-sm">{{ . }}</p>
+                  {{ end }}
+                </div>
+                <div class="shrink-0 flex items-center gap-3">
+                  <span class="text-xs font-semibold text-primary dark:text-darkmode-primary opacity-70 group-open:opacity-100">
+                    <span class="group-open:hidden">{{ $.Params.label_expand | default "展开详情" }} ▾</span>
+                    <span class="hidden group-open:inline">{{ $.Params.label_collapse | default "收起" }} ▴</span>
+                  </span>
+                </div>
+              </summary>
+
+              <div class="px-6 pb-6 pt-2 border-t border-border dark:border-darkmode-border grid md:grid-cols-2 gap-6">
+                {{ with .responsibilities }}
+                  <div>
+                    <div class="text-xs uppercase tracking-wider text-text-light dark:text-darkmode-text-light font-semibold mb-2">
+                      {{ $.Params.label_responsibilities | default "工作职责" }}
+                    </div>
+                    <ul class="space-y-1.5 text-sm">
+                      {{ range . }}
+                        <li class="flex items-start gap-2">
+                          <span class="text-primary dark:text-darkmode-primary mt-0.5 shrink-0">▸</span>
+                          <span>{{ . }}</span>
+                        </li>
+                      {{ end }}
+                    </ul>
+                  </div>
+                {{ end }}
+                {{ with .requirements }}
+                  <div>
+                    <div class="text-xs uppercase tracking-wider text-text-light dark:text-darkmode-text-light font-semibold mb-2">
+                      {{ $.Params.label_requirements | default "任职要求" }}
+                    </div>
+                    <ul class="space-y-1.5 text-sm">
+                      {{ range . }}
+                        <li class="flex items-start gap-2">
+                          <span class="text-primary dark:text-darkmode-primary mt-0.5 shrink-0">▸</span>
+                          <span>{{ . }}</span>
+                        </li>
+                      {{ end }}
+                    </ul>
+                  </div>
+                {{ end }}
+                {{ with .nice_to_have }}
+                  <div class="md:col-span-2">
+                    <div class="text-xs uppercase tracking-wider text-text-light dark:text-darkmode-text-light font-semibold mb-2">
+                      {{ $.Params.label_nice_to_have | default "加分项" }}
+                    </div>
+                    <ul class="space-y-1.5 text-sm">
+                      {{ range . }}
+                        <li class="flex items-start gap-2">
+                          <span class="text-primary dark:text-darkmode-primary mt-0.5 shrink-0">▸</span>
+                          <span>{{ . }}</span>
+                        </li>
+                      {{ end }}
+                    </ul>
+                  </div>
+                {{ end }}
+                {{ with .apply_url }}
+                  <div class="md:col-span-2 pt-2">
+                    <a href="{{ . }}" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-primary text-white text-sm font-semibold hover:opacity-90 dark:bg-darkmode-primary dark:text-darkmode-body transition">
+                      {{ $.Params.label_apply | default "投递简历" }} →
+                    </a>
+                  </div>
+                {{ end }}
+              </div>
+            </details>
+          {{ end }}
+        </div>
+      {{ else }}
+        <div class="rounded-2xl border border-dashed border-border dark:border-darkmode-border p-10 text-center">
+          <p class="text-text-light dark:text-darkmode-text-light mb-2">{{ .Params.positions_empty | default "暂无公开招聘岗位。我们持续欢迎自我推荐 —— 简历直接发到下面的邮箱即可。" }}</p>
+        </div>
+      {{ end }}
+    </div>
+  </section>
+
+  {{/* ----- Hiring process ----- */}}
+  {{ with .Params.process }}
+    <section class="pb-20">
+      <div class="container">
+        <div class="row justify-center mb-12">
+          <div class="md:col-10 text-center">
+            <h2 class="text-h3 font-bold mb-3">{{ $.Params.process_title | default "招聘流程" }}</h2>
+            {{ with $.Params.process_subtitle }}
+              <p class="text-text-light dark:text-darkmode-text-light text-lg">{{ . }}</p>
+            {{ end }}
+          </div>
+        </div>
+        <div class="row justify-center">
+          <div class="md:col-10 lg:col-9">
+            <ol class="relative border-l-2 border-border dark:border-darkmode-border pl-8 space-y-8">
+              {{ range . }}
+                <li class="relative">
+                  <span class="absolute -left-[37px] top-1 h-4 w-4 rounded-full border-2 border-primary dark:border-darkmode-primary bg-body dark:bg-darkmode-body"></span>
+                  <div class="text-xs font-semibold text-primary dark:text-darkmode-primary tracking-widest uppercase mb-1">{{ .step }}</div>
+                  <h3 class="text-h6 font-semibold mb-1">{{ .title }}</h3>
+                  {{ with .description }}
+                    <p class="text-text-light dark:text-darkmode-text-light text-sm leading-relaxed">{{ . }}</p>
+                  {{ end }}
+                </li>
+              {{ end }}
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+  {{ end }}
+
+  {{/* ----- CTA ----- */}}
+  <section class="pb-24">
+    <div class="container">
+      <div class="rounded-2xl text-white p-12 text-center relative overflow-hidden"
+           style="background: linear-gradient(120deg, #4338CA 0%, #4F46E5 50%, #6366F1 100%);">
+        <div class="absolute inset-0 pointer-events-none opacity-20"
+             style="background-image: radial-gradient(circle at 10% 30%, rgba(255,255,255,0.6) 0, transparent 30%), radial-gradient(circle at 90% 70%, rgba(255,255,255,0.4) 0, transparent 35%);"></div>
+        <div class="relative">
+          <h2 class="text-h3 font-bold mb-3">{{ .Params.cta_title | default "把简历发过来" }}</h2>
+          <p class="text-white/85 mb-7 max-w-2xl mx-auto">{{ .Params.cta_subtitle | default "无论是工程、安全、运营还是设计，欢迎告诉我们你的故事与作品。" }}</p>
+          {{ with .Params.cta_email }}
+            <a href="mailto:{{ . }}?subject={{ $.Params.cta_subject | default "[加入我们] · 岗位/方向 · 你的名字" | urlquery }}"
+               class="inline-flex items-center px-6 py-3 rounded-full bg-white text-primary font-semibold hover:bg-white/90 transition">
+              {{ $.Params.cta_label | default "投递简历" }}：{{ . }}
+              <span class="ml-2">→</span>
+            </a>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </section>
+
+{{ end }}
