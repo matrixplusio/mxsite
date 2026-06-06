@@ -1,0 +1,28 @@
+home: 首页
+read_more: 阅读更多
+send: 发送
+related_posts: 相关文章
+categories: 分类
+tags: 标签
+toc: 目录
+share: 分享
+search_input_placeholder: 搜索文章...
+search_no_results: 无匹配结果
+search_initial_message: 输入关键字搜索...
+search_navigate: 切换
+search_select: 选择
+search_close: 关闭
+nav_button: 开源产品
+copyright: "© 2026 字节矩阵（深圳）科技有限公司 · MatrixPlus"
+privacy: 隐私政策
+contact_email_title: 邮箱
+contact_email_desc: 合作、销售、支持或任何咨询，都可以通过邮件联系我们。
+contact_github_title: GitHub
+contact_github_desc: 在开源项目的 Issues、Pull Requests 与 Discussions 中找到我们。
+contact_sales_title: 企业级咨询
+contact_sales_desc: 正在评估 mxid 或 mxsec-platform？请用一段话告诉我们您的场景与目标。
+contact_company_title: 公司信息
+contact_company_legal: 字节矩阵（深圳）科技有限公司
+contact_company_location: 中国 · 广东 · 深圳
+contact_response_note: 我们通常在 1–2 个工作日内回复。
+milestones_title: 里程碑

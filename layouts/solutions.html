@@ -1,0 +1,251 @@
+{{ define "main" }}
+
+  {{/* ----- Title + intro ----- */}}
+  <section class="pt-20 pb-10">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="md:col-10 lg:col-9 xl:col-8 text-center">
+          <h1 class="text-h2 lg:text-h1 font-bold mb-4">{{ .Title }}</h1>
+          {{ with .Params.description }}
+            <p class="text-text-light dark:text-darkmode-text-light text-lg max-w-2xl mx-auto">
+              {{ . }}
+            </p>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {{/* ----- Stats band ----- */}}
+  {{ with .Params.stats }}
+    <section class="py-14 text-white relative overflow-hidden mb-16"
+             style="background: linear-gradient(120deg, #4338CA 0%, #4F46E5 50%, #6366F1 100%);">
+      <div class="absolute inset-0 pointer-events-none opacity-20"
+           style="background-image: radial-gradient(circle at 10% 30%, rgba(255,255,255,0.6) 0, transparent 30%), radial-gradient(circle at 90% 70%, rgba(255,255,255,0.4) 0, transparent 35%);"></div>
+      <div class="container relative">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-y-10 gap-x-6">
+          {{ range . }}
+            <div class="text-center">
+              <div class="text-4xl lg:text-5xl font-bold mb-2 tracking-tight">{{ .value }}</div>
+              <div class="text-sm lg:text-base text-white/80">{{ .label }}</div>
+            </div>
+          {{ end }}
+        </div>
+      </div>
+    </section>
+  {{ end }}
+
+  {{/* ----- Solution cards ----- */}}
+  {{ with .Params.solutions }}
+    <section class="pb-20">
+      <div class="container">
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {{ range . }}
+            <article id="{{ .key }}" class="flex flex-col rounded-2xl border border-border dark:border-darkmode-border bg-light dark:bg-darkmode-light p-7 transition hover:border-primary dark:hover:border-darkmode-primary hover:shadow-lg">
+
+              <div class="text-primary dark:text-darkmode-primary text-xs font-semibold tracking-widest uppercase mb-3">{{ .industry }}</div>
+
+              <h2 class="text-h5 font-bold mb-3 leading-snug">{{ .title }}</h2>
+
+              {{ with .challenge }}
+                <p class="text-sm leading-relaxed mb-5">{{ . }}</p>
+              {{ end }}
+
+              {{ with .offering }}
+                <div class="mb-5">
+                  <div class="text-xs uppercase tracking-wider text-text-light dark:text-darkmode-text-light font-semibold mb-2">
+                    {{ $.Params.label_offering | default "我们的方案" }}
+                  </div>
+                  <ul class="space-y-1.5 text-sm">
+                    {{ range . }}
+                      <li class="flex items-start gap-2">
+                        <span class="text-primary dark:text-darkmode-primary mt-0.5 shrink-0">▸</span>
+                        <span>{{ . }}</span>
+                      </li>
+                    {{ end }}
+                  </ul>
+                </div>
+              {{ end }}
+
+              {{ with .capabilities }}
+                <div class="mb-5">
+                  <div class="text-xs uppercase tracking-wider text-text-light dark:text-darkmode-text-light font-semibold mb-2">
+                    {{ $.Params.label_capabilities | default "关键能力" }}
+                  </div>
+                  <div class="flex flex-wrap gap-1.5">
+                    {{ range . }}
+                      <span class="inline-flex items-center text-[11px] font-semibold tracking-wide uppercase px-2 py-1 rounded-md bg-primary/10 dark:bg-darkmode-primary/10 text-primary dark:text-darkmode-primary">
+                        {{ . }}
+                      </span>
+                    {{ end }}
+                  </div>
+                </div>
+              {{ end }}
+
+              {{ if .case_link }}
+                <div class="mt-auto pt-5 border-t border-border dark:border-darkmode-border">
+                  <a href="{{ .case_link | relLangURL }}"
+                     class="text-sm font-semibold text-primary dark:text-darkmode-primary hover:underline inline-flex items-center gap-1">
+                    {{ .case_label | default ($.Params.label_view_case | default "查看相关案例") }}
+                    <span>→</span>
+                  </a>
+                </div>
+              {{ end }}
+
+            </article>
+          {{ end }}
+        </div>
+      </div>
+    </section>
+  {{ end }}
+
+  {{/* ----- Capability matrix (which business lines we mix per industry) ----- */}}
+  {{ with .Params.matrix }}
+    <section class="pb-20">
+      <div class="container">
+        <div class="row justify-center mb-10">
+          <div class="md:col-10 text-center">
+            <h2 class="text-h3 font-bold mb-3">
+              {{ $.Params.matrix_title | default "能力组合" }}
+            </h2>
+            {{ with $.Params.matrix_subtitle }}
+              <p class="text-text-light dark:text-darkmode-text-light text-lg">{{ . }}</p>
+            {{ end }}
+          </div>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm border border-border dark:border-darkmode-border rounded-xl overflow-hidden">
+            <thead class="bg-light dark:bg-darkmode-light">
+              <tr>
+                <th class="text-left p-4 font-semibold">{{ $.Params.matrix_industry_header | default "行业" }}</th>
+                {{ range $.Params.matrix_columns }}
+                  <th class="text-center p-4 font-semibold whitespace-nowrap">{{ . }}</th>
+                {{ end }}
+              </tr>
+            </thead>
+            <tbody>
+              {{ range . }}
+                <tr class="border-t border-border dark:border-darkmode-border">
+                  <td class="p-4 font-medium">{{ .industry }}</td>
+                  {{ range .marks }}
+                    <td class="text-center p-4">
+                      {{ if eq . "core" }}
+                        <span title="主力" class="text-primary dark:text-darkmode-primary font-bold text-base">●</span>
+                      {{ else if eq . "support" }}
+                        <span title="辅助" class="text-text-light dark:text-darkmode-text-light">○</span>
+                      {{ else }}
+                        <span class="text-text-light/30 dark:text-darkmode-text-light/30">·</span>
+                      {{ end }}
+                    </td>
+                  {{ end }}
+                </tr>
+              {{ end }}
+            </tbody>
+          </table>
+        </div>
+
+        <div class="mt-4 text-xs text-text-light dark:text-darkmode-text-light flex flex-wrap gap-4">
+          <span><span class="text-primary dark:text-darkmode-primary font-bold">●</span> {{ $.Params.matrix_legend_core | default "主力能力" }}</span>
+          <span><span>○</span> {{ $.Params.matrix_legend_support | default "辅助能力" }}</span>
+          <span><span class="opacity-50">·</span> {{ $.Params.matrix_legend_none | default "暂无 / 不适用" }}</span>
+        </div>
+      </div>
+    </section>
+  {{ end }}
+
+  {{/* ----- Credentials ----- */}}
+  {{ if or .Params.credentials_team .Params.credentials_company }}
+    <section class="pb-20">
+      <div class="container">
+        <div class="row justify-center mb-10">
+          <div class="md:col-10 text-center">
+            <h2 class="text-h3 font-bold mb-3">
+              {{ .Params.credentials_title | default "资质与认证" }}
+            </h2>
+            {{ with .Params.credentials_subtitle }}
+              <p class="text-text-light dark:text-darkmode-text-light text-lg">{{ . }}</p>
+            {{ end }}
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          {{ with .Params.credentials_team }}
+            <div class="rounded-2xl border border-border dark:border-darkmode-border p-8">
+              <div class="text-primary dark:text-darkmode-primary text-xs font-semibold tracking-widest uppercase mb-3">
+                {{ $.Params.credentials_team_label | default "团队认证" }}
+              </div>
+              <ul class="space-y-3">
+                {{ range . }}
+                  <li class="flex items-start gap-3">
+                    <span class="shrink-0 inline-flex h-8 w-8 items-center justify-center rounded-lg bg-primary/10 dark:bg-darkmode-primary/10 text-primary dark:text-darkmode-primary text-xs font-bold">
+                      {{ .badge | default "✓" }}
+                    </span>
+                    <div>
+                      <div class="font-semibold">{{ .name }}</div>
+                      {{ with .description }}
+                        <div class="text-sm text-text-light dark:text-darkmode-text-light">{{ . }}</div>
+                      {{ end }}
+                    </div>
+                  </li>
+                {{ end }}
+              </ul>
+            </div>
+          {{ end }}
+
+          {{ with .Params.credentials_company }}
+            <div class="rounded-2xl border border-border dark:border-darkmode-border p-8">
+              <div class="text-primary dark:text-darkmode-primary text-xs font-semibold tracking-widest uppercase mb-3">
+                {{ $.Params.credentials_company_label | default "公司资质" }}
+              </div>
+              <ul class="space-y-3">
+                {{ range . }}
+                  <li class="flex items-start gap-3">
+                    <span class="shrink-0 mt-0.5 inline-block h-2 w-2 rounded-full
+                      {{ if eq .status "active" }}bg-emerald-500
+                      {{ else if eq .status "pending" }}bg-amber-500
+                      {{ else }}bg-text-light/50 dark:bg-darkmode-text-light/50{{ end }}"></span>
+                    <div>
+                      <div class="font-medium">
+                        {{ .name }}
+                        {{ if .status }}
+                          <span class="ml-2 text-[11px] font-semibold uppercase tracking-wider
+                            {{ if eq .status "active" }}text-emerald-600 dark:text-emerald-400
+                            {{ else if eq .status "pending" }}text-amber-600 dark:text-amber-400
+                            {{ else }}text-text-light dark:text-darkmode-text-light{{ end }}">
+                            {{ .status_label }}
+                          </span>
+                        {{ end }}
+                      </div>
+                      {{ with .description }}
+                        <div class="text-sm text-text-light dark:text-darkmode-text-light mt-0.5">{{ . }}</div>
+                      {{ end }}
+                    </div>
+                  </li>
+                {{ end }}
+              </ul>
+            </div>
+          {{ end }}
+        </div>
+      </div>
+    </section>
+  {{ end }}
+
+  {{/* ----- CTA ----- */}}
+  <section class="pb-24">
+    <div class="container">
+      <div class="rounded-2xl border border-border dark:border-darkmode-border p-10 text-center">
+        <h2 class="text-h4 font-bold mb-3">
+          {{ .Params.cta_title | default "您的行业还没列出来?" }}
+        </h2>
+        <p class="text-text-light dark:text-darkmode-text-light mb-6 max-w-2xl mx-auto">
+          {{ .Params.cta_subtitle | default "MatrixPlus 的能力可以围绕您的具体场景组合，欢迎告诉我们您的目标。" }}
+        </p>
+        <a href="{{ "/contact/" | relLangURL }}" class="btn btn-primary">
+          {{ .Params.cta_label | default "聊聊您的方案" }}
+        </a>
+      </div>
+    </div>
+  </section>
+
+{{ end }}

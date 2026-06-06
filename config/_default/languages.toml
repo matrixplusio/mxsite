@@ -1,0 +1,13 @@
+################ Chinese (Simplified) — default ##################
+[zh-cn]
+label = "中文"
+locale = "zh-cn"
+contentDir = "content/chinese"
+weight = 1
+
+################ English ##################
+[en]
+label = "EN"
+locale = "en-us"
+contentDir = "content/english"
+weight = 2

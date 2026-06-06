@@ -1,0 +1,148 @@
+{{ define "main" }}
+
+  {{/* ----- Title + intro ----- */}}
+  <section class="pt-20 pb-10">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="md:col-10 lg:col-9 xl:col-8 text-center">
+          <h1 class="text-h2 lg:text-h1 font-bold mb-4">{{ .Title }}</h1>
+          {{ with .Params.description }}
+            <p class="text-text-light dark:text-darkmode-text-light text-lg max-w-2xl mx-auto">{{ . }}</p>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {{/* ----- Service category cards ----- */}}
+  {{ with .Params.categories }}
+    <section class="pb-20">
+      <div class="container">
+        <div class="grid md:grid-cols-2 gap-6">
+          {{ range . }}
+            <article id="{{ .key }}" class="flex flex-col rounded-2xl border border-border dark:border-darkmode-border bg-light dark:bg-darkmode-light p-8 transition hover:border-primary dark:hover:border-darkmode-primary hover:shadow-lg">
+
+              <div class="text-primary dark:text-darkmode-primary text-xs font-semibold tracking-widest uppercase mb-3">{{ .tag }}</div>
+              <h2 class="text-h4 font-bold mb-3">{{ .title }}</h2>
+              {{ with .description }}
+                <p class="text-sm leading-relaxed mb-5">{{ . }}</p>
+              {{ end }}
+
+              {{ with .offerings }}
+                <div class="mb-5">
+                  <div class="text-xs uppercase tracking-wider text-text-light dark:text-darkmode-text-light font-semibold mb-2">
+                    {{ $.Params.label_offerings | default "服务内容" }}
+                  </div>
+                  <ul class="space-y-1.5 text-sm">
+                    {{ range . }}
+                      <li class="flex items-start gap-2">
+                        <span class="text-primary dark:text-darkmode-primary mt-0.5 shrink-0">▸</span>
+                        <span>{{ . }}</span>
+                      </li>
+                    {{ end }}
+                  </ul>
+                </div>
+              {{ end }}
+
+              {{ with .delivery }}
+                <div class="mt-auto pt-5 border-t border-border dark:border-darkmode-border">
+                  <div class="text-xs uppercase tracking-wider text-text-light dark:text-darkmode-text-light font-semibold mb-3">
+                    {{ $.Params.label_delivery | default "交付方式" }}
+                  </div>
+                  <div class="flex flex-wrap gap-1.5">
+                    {{ range . }}
+                      <span class="inline-flex items-center text-[11px] font-semibold tracking-wide uppercase px-2 py-1 rounded-md bg-primary/10 dark:bg-darkmode-primary/10 text-primary dark:text-darkmode-primary">
+                        {{ . }}
+                      </span>
+                    {{ end }}
+                  </div>
+                </div>
+              {{ end }}
+
+            </article>
+          {{ end }}
+        </div>
+      </div>
+    </section>
+  {{ end }}
+
+  {{/* ----- Engagement models ----- */}}
+  {{ with .Params.engagements }}
+    <section class="pb-20">
+      <div class="container">
+        <div class="row justify-center mb-12">
+          <div class="md:col-10 text-center">
+            <h2 class="text-h3 font-bold mb-3">
+              {{ $.Params.engagements_title | default "合作方式" }}
+            </h2>
+            {{ with $.Params.engagements_subtitle }}
+              <p class="text-text-light dark:text-darkmode-text-light text-lg">{{ . }}</p>
+            {{ end }}
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          {{ range . }}
+            <div class="rounded-2xl border border-border dark:border-darkmode-border p-7">
+              <div class="text-2xl mb-3">{{ .icon }}</div>
+              <h3 class="text-h6 font-bold mb-2">{{ .title }}</h3>
+              {{ with .duration }}
+                <div class="text-[11px] font-semibold uppercase tracking-wider text-primary dark:text-darkmode-primary mb-2">{{ . }}</div>
+              {{ end }}
+              {{ with .description }}
+                <p class="text-text-light dark:text-darkmode-text-light text-sm leading-relaxed">{{ . }}</p>
+              {{ end }}
+            </div>
+          {{ end }}
+        </div>
+      </div>
+    </section>
+  {{ end }}
+
+  {{/* ----- Process ----- */}}
+  {{ with .Params.process }}
+    <section class="pb-20">
+      <div class="container">
+        <div class="row justify-center mb-12">
+          <div class="md:col-10 text-center">
+            <h2 class="text-h3 font-bold mb-3">
+              {{ $.Params.process_title | default "交付流程" }}
+            </h2>
+            {{ with $.Params.process_subtitle }}
+              <p class="text-text-light dark:text-darkmode-text-light text-lg">{{ . }}</p>
+            {{ end }}
+          </div>
+        </div>
+
+        <div class="row justify-center">
+          <div class="md:col-10 lg:col-9">
+            <ol class="relative border-l-2 border-border dark:border-darkmode-border pl-8 space-y-8">
+              {{ range . }}
+                <li class="relative">
+                  <span class="absolute -left-[37px] top-1 h-4 w-4 rounded-full border-2 border-primary dark:border-darkmode-primary bg-body dark:bg-darkmode-body"></span>
+                  <div class="text-xs font-semibold text-primary dark:text-darkmode-primary tracking-widest uppercase mb-1">{{ .step }}</div>
+                  <h3 class="text-h6 font-semibold mb-1">{{ .title }}</h3>
+                  {{ with .description }}
+                    <p class="text-text-light dark:text-darkmode-text-light text-sm leading-relaxed">{{ . }}</p>
+                  {{ end }}
+                </li>
+              {{ end }}
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+  {{ end }}
+
+  {{/* ----- CTA ----- */}}
+  <section class="pb-24">
+    <div class="container">
+      <div class="rounded-2xl border border-border dark:border-darkmode-border p-10 text-center">
+        <h2 class="text-h4 font-bold mb-3">{{ .Params.cta_title | default "聊聊您的项目" }}</h2>
+        <p class="text-text-light dark:text-darkmode-text-light mb-6 max-w-2xl mx-auto">{{ .Params.cta_subtitle | default "无论是安全运营、定制研发，还是直播代运营与培训，我们都可以根据场景定制服务方案。" }}</p>
+        <a href="{{ "/contact/" | relLangURL }}" class="btn btn-primary">{{ .Params.cta_label | default "联系我们" }}</a>
+      </div>
+    </div>
+  </section>
+
+{{ end }}

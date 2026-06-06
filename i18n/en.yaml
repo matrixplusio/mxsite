@@ -1,0 +1,28 @@
+home: Home
+read_more: Read More
+send: Send
+related_posts: Related Posts
+categories: Categories
+tags: Tags
+toc: Table of Contents
+share: Share
+search_input_placeholder: Search Post...
+search_no_results: No results for
+search_initial_message: Type something to search..
+search_navigate: to navigate
+search_select: to select
+search_close: to close
+nav_button: Open Source
+copyright: "© 2026 Bytematrix (Shenzhen) Technology Co., Ltd. · MatrixPlus"
+privacy: Privacy
+contact_email_title: Email
+contact_email_desc: For partnership, sales, support, or any general inquiry.
+contact_github_title: GitHub
+contact_github_desc: Open issues, pull requests, and discussions for our open-source projects.
+contact_sales_title: Enterprise inquiries
+contact_sales_desc: Evaluating mxid or mxsec-platform for your organization? Email us with a one-paragraph brief of your scenario.
+contact_company_title: Company
+contact_company_legal: Bytematrix (Shenzhen) Technology Co., Ltd.
+contact_company_location: Shenzhen, Guangdong, China
+contact_response_note: We typically respond within 1–2 business days.
+milestones_title: Milestones

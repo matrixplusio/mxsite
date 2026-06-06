@@ -1,0 +1,152 @@
+{{ define "main" }}
+
+  {{/* ----- Title + intro ----- */}}
+  <section class="pt-20 pb-10">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="md:col-10 lg:col-9 xl:col-8 text-center">
+          <h1 class="text-h2 lg:text-h1 font-bold mb-4">{{ .Title }}</h1>
+          {{ with .Params.description }}
+            <p class="text-text-light dark:text-darkmode-text-light text-lg max-w-2xl mx-auto">{{ . }}</p>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {{/* ----- Product cards (large, 1-col stack) ----- */}}
+  {{ with .Params.products }}
+    <section class="pb-20">
+      <div class="container">
+        <div class="space-y-6">
+          {{ range . }}
+            <article id="{{ .key }}" class="rounded-2xl border border-border dark:border-darkmode-border bg-light dark:bg-darkmode-light p-8 lg:p-10 transition hover:border-primary dark:hover:border-darkmode-primary hover:shadow-lg">
+              <div class="grid lg:grid-cols-12 gap-8">
+
+                <div class="lg:col-span-5">
+                  <div class="flex flex-wrap items-center gap-2 mb-3">
+                    <span class="text-primary dark:text-darkmode-primary text-xs font-semibold tracking-widest uppercase">{{ .tag }}</span>
+                    {{ with .status }}
+                      <span class="text-[11px] font-semibold uppercase tracking-wider px-2 py-1 rounded-full
+                        {{ if eq .key "ga" }}bg-emerald-500/10 text-emerald-600 dark:text-emerald-400
+                        {{ else if eq .key "beta" }}bg-amber-500/10 text-amber-600 dark:text-amber-400
+                        {{ else }}bg-primary/10 text-primary dark:text-darkmode-primary{{ end }}">
+                        {{ .label }}
+                      </span>
+                    {{ end }}
+                  </div>
+                  <h2 class="text-h3 font-bold mb-2 leading-tight">{{ .name }}</h2>
+                  {{ with .tagline }}
+                    <p class="text-text-light dark:text-darkmode-text-light text-base mb-5">{{ . }}</p>
+                  {{ end }}
+                  {{ with .description }}
+                    <p class="text-sm leading-relaxed mb-6">{{ . }}</p>
+                  {{ end }}
+
+                  <div class="flex flex-wrap gap-2">
+                    {{ with .detail_url }}
+                      <a href="{{ . | relLangURL }}" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary text-white text-sm font-semibold hover:opacity-90 dark:bg-darkmode-primary dark:text-darkmode-body transition">
+                        {{ $.Params.label_detail | default "查看详情" }}
+                        <span>→</span>
+                      </a>
+                    {{ end }}
+                    {{ with .repo_url }}
+                      <a href="{{ . }}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-border dark:border-darkmode-border text-sm font-semibold hover:border-primary dark:hover:border-darkmode-primary hover:text-primary dark:hover:text-darkmode-primary transition">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12.05c0 5.1 3.3 9.43 7.88 10.96.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.15 1.18a10.95 10.95 0 0 1 5.74 0c2.19-1.49 3.15-1.18 3.15-1.18.62 1.58.23 2.75.11 3.04.74.81 1.18 1.84 1.18 3.1 0 4.43-2.7 5.4-5.26 5.69.41.35.78 1.05.78 2.12v3.15c0 .31.21.66.8.55A11.5 11.5 0 0 0 23.5 12.05C23.5 5.65 18.35.5 12 .5z"/></svg>
+                        GitHub
+                      </a>
+                    {{ end }}
+                    {{ with .contact_url }}
+                      <a href="{{ . | relLangURL }}" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-border dark:border-darkmode-border text-sm font-semibold hover:border-primary dark:hover:border-darkmode-primary hover:text-primary dark:hover:text-darkmode-primary transition">
+                        {{ $.Params.label_contact | default "联系销售" }}
+                        <span>→</span>
+                      </a>
+                    {{ end }}
+                  </div>
+                </div>
+
+                <div class="lg:col-span-7">
+                  {{ with .highlights }}
+                    <div class="text-xs uppercase tracking-wider text-text-light dark:text-darkmode-text-light font-semibold mb-3">
+                      {{ $.Params.label_highlights | default "关键能力" }}
+                    </div>
+                    <div class="grid sm:grid-cols-2 gap-x-6 gap-y-3 mb-6">
+                      {{ range . }}
+                        <div class="flex items-start gap-2 text-sm">
+                          <span class="text-primary dark:text-darkmode-primary mt-0.5 shrink-0">▸</span>
+                          <span>{{ . }}</span>
+                        </div>
+                      {{ end }}
+                    </div>
+                  {{ end }}
+
+                  {{ with .editions }}
+                    <div class="grid sm:grid-cols-2 gap-3">
+                      {{ range . }}
+                        <div class="rounded-xl border border-border dark:border-darkmode-border p-4">
+                          <div class="flex items-center justify-between mb-2">
+                            <h4 class="font-semibold text-sm">{{ .name }}</h4>
+                            <span class="text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full
+                              {{ if .open }}bg-emerald-500/10 text-emerald-600 dark:text-emerald-400
+                              {{ else }}bg-amber-500/10 text-amber-600 dark:text-amber-400{{ end }}">
+                              {{ .label }}
+                            </span>
+                          </div>
+                          {{ with .description }}
+                            <p class="text-xs text-text-light dark:text-darkmode-text-light leading-relaxed">{{ . }}</p>
+                          {{ end }}
+                        </div>
+                      {{ end }}
+                    </div>
+                  {{ end }}
+                </div>
+
+              </div>
+            </article>
+          {{ end }}
+        </div>
+      </div>
+    </section>
+  {{ end }}
+
+  {{/* ----- Roadmap / more coming ----- */}}
+  {{ with .Params.roadmap }}
+    <section class="pb-20">
+      <div class="container">
+        <div class="row justify-center mb-10">
+          <div class="md:col-10 text-center">
+            <h2 class="text-h3 font-bold mb-3">
+              {{ $.Params.roadmap_title | default "更多产品在路上" }}
+            </h2>
+            {{ with $.Params.roadmap_subtitle }}
+              <p class="text-text-light dark:text-darkmode-text-light text-base">{{ . }}</p>
+            {{ end }}
+          </div>
+        </div>
+        <div class="grid md:grid-cols-3 gap-4">
+          {{ range . }}
+            <div class="rounded-2xl border border-dashed border-border dark:border-darkmode-border p-6">
+              <div class="text-primary dark:text-darkmode-primary text-xs font-semibold tracking-widest uppercase mb-2">{{ .tag }}</div>
+              <h3 class="font-semibold mb-1">{{ .name }}</h3>
+              {{ with .description }}
+                <p class="text-text-light dark:text-darkmode-text-light text-sm leading-relaxed">{{ . }}</p>
+              {{ end }}
+            </div>
+          {{ end }}
+        </div>
+      </div>
+    </section>
+  {{ end }}
+
+  {{/* ----- CTA ----- */}}
+  <section class="pb-24">
+    <div class="container">
+      <div class="rounded-2xl border border-border dark:border-darkmode-border p-10 text-center">
+        <h2 class="text-h4 font-bold mb-3">{{ .Params.cta_title | default "想了解哪个产品适合您?" }}</h2>
+        <p class="text-text-light dark:text-darkmode-text-light mb-6 max-w-2xl mx-auto">{{ .Params.cta_subtitle | default "我们可以根据您的场景，提供产品选型建议与定制部署方案。" }}</p>
+        <a href="{{ "/contact/" | relLangURL }}" class="btn btn-primary">{{ .Params.cta_label | default "联系我们" }}</a>
+      </div>
+    </div>
+  </section>
+
+{{ end }}

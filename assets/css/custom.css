@@ -1,0 +1,69 @@
+/* MatrixPlus custom overrides */
+
+/* Footer social icons: ghost/outline style, no solid block */
+.social-icons li a {
+  @apply h-9 w-9 rounded-full;
+  background-color: transparent !important;
+  color: var(--color-text-light, currentColor) !important;
+  border: 1px solid var(--color-border, #E5E7EB);
+  transition: color 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
+}
+.social-icons li a:hover {
+  background-color: var(--color-primary) !important;
+  color: #ffffff !important;
+  border-color: var(--color-primary);
+}
+
+/* Footer right column: align social to bottom-right with less visual weight */
+footer .lg\:col-3 ul.social-icons {
+  @apply justify-end;
+  display: flex;
+}
+
+/* About — logo card background, light/dark aware */
+.about-logo-card {
+  background: linear-gradient(135deg, #EEF2FF 0%, #E0E7FF 50%, #C7D2FE 100%);
+}
+:where(.dark, .dark *) .about-logo-card {
+  background: linear-gradient(135deg, #1E1B4B 0%, #312E81 50%, #4338CA 100%);
+}
+
+/* Cases — category filter pills */
+.case-filter-btn {
+  border-color: var(--color-border, #E5E7EB);
+  color: var(--color-text, #475569);
+  background-color: transparent;
+}
+.case-filter-btn:hover {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+.case-filter-btn-active {
+  background-color: var(--color-primary);
+  color: #ffffff;
+  border-color: var(--color-primary);
+}
+.case-filter-btn-active:hover {
+  color: #ffffff;
+}
+:where(.dark, .dark *) .case-filter-btn {
+  border-color: var(--color-darkmode-border, #1E293B);
+  color: var(--color-darkmode-text, #CBD5E1);
+}
+:where(.dark, .dark *) .case-filter-btn-active {
+  background-color: var(--color-darkmode-primary);
+  color: var(--color-darkmode-body, #0F172A);
+  border-color: var(--color-darkmode-primary);
+}
+
+/* About — overlay radial gradients on the logo card */
+.about-logo-card-overlay {
+  background-image:
+    radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.8) 0, transparent 40%),
+    radial-gradient(circle at 75% 75%, rgba(129, 140, 248, 0.4) 0, transparent 45%);
+}
+:where(.dark, .dark *) .about-logo-card-overlay {
+  background-image:
+    radial-gradient(circle at 25% 25%, rgba(129, 140, 248, 0.35) 0, transparent 40%),
+    radial-gradient(circle at 75% 75%, rgba(79, 70, 229, 0.4) 0, transparent 45%);
+}

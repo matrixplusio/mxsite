@@ -1,0 +1,113 @@
+############# English navigation ##############
+
+# Main menu (logo serves as the home link, no standalone "Home" item)
+
+# Products (parent clickable)
+[[main]]
+name = "Products"
+url = "/products/"
+weight = 1
+
+[[main]]
+parent = "Products"
+name = "All Products"
+url = "/products/"
+weight = 1
+
+[[main]]
+parent = "Products"
+name = "Services"
+url = "/services/"
+weight = 2
+
+# Solutions
+[[main]]
+name = "Solutions"
+url = "/solutions/"
+weight = 2
+
+[[main]]
+parent = "Solutions"
+name = "Industry Solutions"
+url = "/solutions/"
+weight = 1
+
+# Insights (top-level, no dropdown)
+[[main]]
+name = "Insights"
+url = "/insights/"
+weight = 3
+
+# Resources (top-level, no dropdown)
+[[main]]
+name = "Resources"
+url = "/resources/"
+weight = 4
+
+# Customers
+[[main]]
+name = "Customers"
+url = "/cases/"
+weight = 5
+
+[[main]]
+parent = "Customers"
+name = "Partners"
+url = "/partners/"
+weight = 1
+
+[[main]]
+parent = "Customers"
+name = "Case Studies"
+url = "/cases/"
+weight = 2
+
+# About
+[[main]]
+name = "About"
+url = "/about/"
+weight = 6
+
+[[main]]
+parent = "About"
+name = "About Us"
+url = "/about/"
+weight = 1
+
+[[main]]
+parent = "About"
+name = "Contact"
+url = "/contact/"
+weight = 2
+
+
+# footer menu
+[[footer]]
+name = "Products"
+url = "/products/"
+weight = 1
+
+[[footer]]
+name = "Open Source"
+url = "/open-source/"
+weight = 2
+
+[[footer]]
+name = "Insights"
+url = "/insights/"
+weight = 3
+
+[[footer]]
+name = "Resources"
+url = "/resources/"
+weight = 4
+
+[[footer]]
+name = "About Us"
+url = "/about/"
+weight = 5
+
+[[footer]]
+name = "Contact"
+url = "/contact/"
+weight = 6

@@ -1,0 +1,197 @@
+{{ define "main" }}
+
+  {{/* ----- Title + intro ----- */}}
+  <section class="pt-20 pb-10">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="md:col-10 lg:col-9 xl:col-8 text-center">
+          <h1 class="text-h2 lg:text-h1 font-bold mb-4">{{ .Title }}</h1>
+          {{ with .Params.description }}
+            <p class="text-text-light dark:text-darkmode-text-light text-lg max-w-2xl mx-auto">{{ . }}</p>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {{/* ----- Topic cards ----- */}}
+  {{ with .Params.topics }}
+    <section class="pb-16">
+      <div class="container">
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {{ range . }}
+            <a href="#{{ .key }}" class="block rounded-2xl border border-border dark:border-darkmode-border bg-light dark:bg-darkmode-light p-6 transition hover:border-primary dark:hover:border-darkmode-primary hover:shadow-lg">
+              <div class="text-primary dark:text-darkmode-primary text-xs font-semibold tracking-widest uppercase mb-3">{{ .tag }}</div>
+              <h3 class="text-h6 font-bold mb-2">{{ .title }}</h3>
+              {{ with .description }}
+                <p class="text-sm text-text-light dark:text-darkmode-text-light leading-relaxed mb-4">{{ . }}</p>
+              {{ end }}
+              {{ with .upcoming }}
+                <div class="text-xs uppercase tracking-wider text-text-light dark:text-darkmode-text-light font-semibold mb-2">
+                  {{ $.Params.label_upcoming | default "即将上线话题" }}
+                </div>
+                <ul class="space-y-1 text-xs">
+                  {{ range . }}
+                    <li class="flex items-start gap-1.5">
+                      <span class="text-primary dark:text-darkmode-primary mt-0.5 shrink-0">·</span>
+                      <span>{{ . }}</span>
+                    </li>
+                  {{ end }}
+                </ul>
+              {{ end }}
+            </a>
+          {{ end }}
+        </div>
+      </div>
+    </section>
+  {{ end }}
+
+  {{/* ----- Posts list ----- */}}
+  {{ $section := .Site.GetPage "section" "blog" }}
+  {{ $posts := where (where site.RegularPages "Section" "blog") "Params.draft" "!=" true }}
+  {{ if eq .Lang "en" }}
+    {{ $posts = where (where site.RegularPages "Section" "blog") "Lang" "en" }}
+  {{ else }}
+    {{ $posts = where $posts "Lang" .Lang }}
+  {{ end }}
+  {{ $posts = $posts.ByPublishDate.Reverse }}
+
+  <section id="posts" class="pb-20">
+    <div class="container">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
+        <div>
+          <h2 class="text-h3 font-bold">{{ .Params.posts_title | default "近期文章" }}</h2>
+          {{ with .Params.posts_subtitle }}
+            <p class="text-text-light dark:text-darkmode-text-light mt-2">{{ . }}</p>
+          {{ end }}
+        </div>
+        {{ with .Params.rss_label }}
+          <a href="{{ "/blog/index.xml" | relLangURL }}" class="text-sm text-primary dark:text-darkmode-primary font-semibold hover:underline self-start sm:self-end">
+            {{ . }} →
+          </a>
+        {{ end }}
+      </div>
+
+      {{/* Category filter pills */}}
+      {{ with .Params.topics }}
+        <div class="flex flex-wrap gap-2 mb-8" data-insights-filter>
+          <button type="button" data-filter-target="all"
+                  class="case-filter-btn case-filter-btn-active inline-flex items-center px-4 py-2 rounded-full text-sm font-medium border transition">
+            {{ $.Params.filter_all_label | default "全部" }}
+            <span class="ml-2 text-xs opacity-70">({{ len $posts }})</span>
+          </button>
+          {{ range . }}
+            {{ $key := .key }}
+            {{ $count := 0 }}
+            {{ range $posts }}
+              {{ if eq .Params.category $key }}{{ $count = add $count 1 }}{{ end }}
+            {{ end }}
+            <button type="button" data-filter-target="{{ $key }}"
+                    class="case-filter-btn inline-flex items-center px-4 py-2 rounded-full text-sm font-medium border transition">
+              {{ .title }}
+              <span class="ml-2 text-xs opacity-70">({{ $count }})</span>
+            </button>
+          {{ end }}
+        </div>
+      {{ end }}
+
+      {{ if gt (len $posts) 0 }}
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" data-insights-grid>
+          {{ range $posts }}
+            <article data-insight-category="{{ .Params.category | default "story" }}"
+                     class="insight-card flex flex-col rounded-2xl border border-border dark:border-darkmode-border bg-light dark:bg-darkmode-light p-6 transition hover:border-primary dark:hover:border-darkmode-primary hover:shadow-lg">
+              {{ with .Params.category }}
+                <div class="text-primary dark:text-darkmode-primary text-[11px] font-semibold tracking-widest uppercase mb-3">{{ . }}</div>
+              {{ end }}
+              <h3 class="text-h5 font-bold mb-2 leading-snug">
+                <a href="{{ .RelPermalink }}" class="hover:text-primary dark:hover:text-darkmode-primary">{{ .Title }}</a>
+              </h3>
+              {{ with .Params.description }}
+                <p class="text-sm text-text-light dark:text-darkmode-text-light leading-relaxed mb-4">{{ . }}</p>
+              {{ end }}
+              <div class="mt-auto pt-4 border-t border-border dark:border-darkmode-border flex items-center justify-between text-xs text-text-light dark:text-darkmode-text-light">
+                <span>{{ .Params.author | default "MatrixPlus" }}</span>
+                <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
+              </div>
+            </article>
+          {{ end }}
+        </div>
+        <p data-insights-empty class="hidden text-center text-text-light dark:text-darkmode-text-light mt-10">
+          {{ .Params.filter_empty_label | default "暂无该分类下的内容" }}
+        </p>
+      {{ else }}
+        <div class="rounded-2xl border border-dashed border-border dark:border-darkmode-border p-10 text-center">
+          <p class="text-text-light dark:text-darkmode-text-light">{{ .Params.empty_message | default "内容陆续上线中。" }}</p>
+        </div>
+      {{ end }}
+    </div>
+  </section>
+
+  {{/* ----- Subscribe CTA ----- */}}
+  <section class="pb-24">
+    <div class="container">
+      <div class="rounded-2xl border border-border dark:border-darkmode-border p-10 text-center">
+        <h2 class="text-h4 font-bold mb-3">{{ .Params.cta_title | default "保持关注 MatrixPlus 智库" }}</h2>
+        <p class="text-text-light dark:text-darkmode-text-light mb-6 max-w-2xl mx-auto">{{ .Params.cta_subtitle | default "订阅 RSS、关注我们的 GitHub 组织，或给我们一封邮件，告诉我们您希望看到的话题。" }}</p>
+        <div class="flex flex-wrap justify-center gap-3">
+          <a href="{{ "/blog/index.xml" | relLangURL }}" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-border dark:border-darkmode-border text-sm font-semibold hover:border-primary dark:hover:border-darkmode-primary hover:text-primary dark:hover:text-darkmode-primary transition">
+            RSS →
+          </a>
+          <a href="https://github.com/matrixplusio" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-border dark:border-darkmode-border text-sm font-semibold hover:border-primary dark:hover:border-darkmode-primary hover:text-primary dark:hover:text-darkmode-primary transition">
+            GitHub →
+          </a>
+          <a href="{{ "/contact/" | relLangURL }}" class="btn btn-primary">{{ .Params.cta_label | default "联系我们" }}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {{/* ----- Filter behaviour (hash-persistent) ----- */}}
+  <script>
+    (function () {
+      var filterRoot = document.querySelector('[data-insights-filter]');
+      var grid = document.querySelector('[data-insights-grid]');
+      var empty = document.querySelector('[data-insights-empty]');
+      if (!filterRoot || !grid) return;
+
+      var buttons = filterRoot.querySelectorAll('.case-filter-btn');
+      var validTargets = Array.prototype.map.call(buttons, function (b) {
+        return b.getAttribute('data-filter-target');
+      });
+
+      function apply(target, opts) {
+        opts = opts || {};
+        if (validTargets.indexOf(target) === -1) target = 'all';
+        buttons.forEach(function (b) {
+          b.classList.toggle('case-filter-btn-active', b.getAttribute('data-filter-target') === target);
+        });
+        var cards = grid.querySelectorAll('.insight-card');
+        var shown = 0;
+        cards.forEach(function (card) {
+          var visible = (target === 'all') || (card.getAttribute('data-insight-category') === target);
+          card.style.display = visible ? '' : 'none';
+          if (visible) shown += 1;
+        });
+        if (empty) empty.classList.toggle('hidden', shown !== 0);
+        if (opts.updateHash) {
+          history.replaceState(null, '', target === 'all' ? location.pathname + location.search : '#' + target);
+        }
+      }
+
+      buttons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          apply(btn.getAttribute('data-filter-target'), { updateHash: true });
+        });
+      });
+
+      window.addEventListener('hashchange', function () {
+        var h = (location.hash || '').replace(/^#/, '');
+        apply(h || 'all', { updateHash: false });
+      });
+
+      var initial = (location.hash || '').replace(/^#/, '') || 'all';
+      apply(initial, { updateHash: false });
+    })();
+  </script>
+
+{{ end }}

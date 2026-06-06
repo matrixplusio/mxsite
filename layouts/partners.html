@@ -1,0 +1,185 @@
+{{ define "main" }}
+
+  {{/* ----- Title + intro ----- */}}
+  <section class="pt-20 pb-10">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="md:col-10 lg:col-9 xl:col-8 text-center">
+          <h1 class="text-h2 lg:text-h1 font-bold mb-4">{{ .Title }}</h1>
+          {{ with .Params.description }}
+            <p class="text-text-light dark:text-darkmode-text-light text-lg max-w-2xl mx-auto">
+              {{ . }}
+            </p>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {{/* ----- Category cards ----- */}}
+  {{ with .Params.categories }}
+    <section class="pb-20">
+      <div class="container">
+        <div class="grid md:grid-cols-2 gap-6">
+          {{ range . }}
+            <div id="{{ .key }}" class="flex flex-col rounded-2xl border border-border dark:border-darkmode-border bg-light dark:bg-darkmode-light p-8 transition hover:border-primary dark:hover:border-darkmode-primary hover:shadow-lg">
+
+              <div class="flex items-center justify-between mb-3">
+                <div class="text-primary dark:text-darkmode-primary text-xs font-semibold tracking-widest uppercase">{{ .tag }}</div>
+                {{ with .status }}
+                  <span class="text-[11px] font-medium px-2 py-1 rounded-full
+                    {{ if eq .key "active" }}bg-emerald-500/10 text-emerald-600 dark:text-emerald-400
+                    {{ else if eq .key "open" }}bg-primary/10 text-primary dark:text-darkmode-primary
+                    {{ else }}bg-text-light/10 text-text-light dark:text-darkmode-text-light{{ end }}">
+                    {{ .label }}
+                  </span>
+                {{ end }}
+              </div>
+
+              <h2 class="text-h4 font-bold mb-3">{{ .title }}</h2>
+
+              {{ with .description }}
+                <p class="text-sm text-text-light dark:text-darkmode-text-light leading-relaxed mb-5">{{ . }}</p>
+              {{ end }}
+
+              {{ with .we_offer }}
+                <div class="mb-5">
+                  <div class="text-xs uppercase tracking-wider text-text-light dark:text-darkmode-text-light font-semibold mb-2">
+                    {{ $.Params.label_we_offer | default "我们提供" }}
+                  </div>
+                  <ul class="space-y-1.5 text-sm">
+                    {{ range . }}
+                      <li class="flex items-start gap-2">
+                        <span class="text-primary dark:text-darkmode-primary mt-0.5 shrink-0">▸</span>
+                        <span>{{ . }}</span>
+                      </li>
+                    {{ end }}
+                  </ul>
+                </div>
+              {{ end }}
+
+              {{ with .we_seek }}
+                <div class="mb-5">
+                  <div class="text-xs uppercase tracking-wider text-text-light dark:text-darkmode-text-light font-semibold mb-2">
+                    {{ $.Params.label_we_seek | default "我们寻找" }}
+                  </div>
+                  <ul class="space-y-1.5 text-sm">
+                    {{ range . }}
+                      <li class="flex items-start gap-2">
+                        <span class="text-primary dark:text-darkmode-primary mt-0.5 shrink-0">▸</span>
+                        <span>{{ . }}</span>
+                      </li>
+                    {{ end }}
+                  </ul>
+                </div>
+              {{ end }}
+
+              {{ with .partners }}
+                <div class="mt-auto pt-5 border-t border-border dark:border-darkmode-border">
+                  <div class="text-xs uppercase tracking-wider text-text-light dark:text-darkmode-text-light font-semibold mb-3">
+                    {{ $.Params.label_current_partners | default "已有合作" }}
+                  </div>
+                  <ul class="space-y-2 text-sm">
+                    {{ range . }}
+                      <li class="flex items-start gap-2">
+                        <span class="mt-0.5 shrink-0 inline-block h-1.5 w-1.5 rounded-full bg-primary dark:bg-darkmode-primary"></span>
+                        <span>
+                          <strong>{{ .name }}</strong>{{ with .note }}<span class="text-text-light dark:text-darkmode-text-light"> — {{ . }}</span>{{ end }}
+                        </span>
+                      </li>
+                    {{ end }}
+                  </ul>
+                </div>
+              {{ end }}
+
+            </div>
+          {{ end }}
+        </div>
+      </div>
+    </section>
+  {{ end }}
+
+  {{/* ----- Logo wall (opt-in, only renders when partners_logos has entries) ----- */}}
+  {{ with .Params.partners_logos }}
+    <section class="pb-20">
+      <div class="container">
+        <div class="row justify-center mb-10">
+          <div class="md:col-10 text-center">
+            <h2 class="text-h3 font-bold mb-2">{{ $.Params.partners_logos_title | default "已合作伙伴" }}</h2>
+            {{ with $.Params.partners_logos_subtitle }}
+              <p class="text-text-light dark:text-darkmode-text-light text-base">{{ . }}</p>
+            {{ end }}
+          </div>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 items-center">
+          {{ range . }}
+            <div class="aspect-[3/2] flex items-center justify-center rounded-xl border border-border dark:border-darkmode-border p-4 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition">
+              {{ if .logo }}
+                <img src="{{ .logo }}" alt="{{ .name }}" class="max-h-full max-w-full" />
+              {{ else }}
+                <span class="text-sm text-text-light dark:text-darkmode-text-light">{{ .name }}</span>
+              {{ end }}
+            </div>
+          {{ end }}
+        </div>
+      </div>
+    </section>
+  {{ end }}
+
+  {{/* ----- How we partner ----- */}}
+  {{ with .Params.principles }}
+    <section class="pb-20">
+      <div class="container">
+        <div class="row justify-center mb-12">
+          <div class="md:col-10 text-center">
+            <h2 class="text-h3 font-bold mb-3">
+              {{ $.Params.principles_title | default "我们如何与伙伴合作" }}
+            </h2>
+            {{ with $.Params.principles_subtitle }}
+              <p class="text-text-light dark:text-darkmode-text-light text-lg">{{ . }}</p>
+            {{ end }}
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          {{ range . }}
+            <div class="flex gap-4">
+              <div class="shrink-0 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 dark:bg-darkmode-primary/10 text-primary dark:text-darkmode-primary font-bold text-sm">
+                {{ .index }}
+              </div>
+              <div>
+                <h3 class="font-semibold mb-1">{{ .title }}</h3>
+                <p class="text-text-light dark:text-darkmode-text-light text-sm leading-relaxed">{{ .description }}</p>
+              </div>
+            </div>
+          {{ end }}
+        </div>
+      </div>
+    </section>
+  {{ end }}
+
+  {{/* ----- CTA ----- */}}
+  <section class="pb-24">
+    <div class="container">
+      <div class="rounded-2xl text-white p-12 text-center relative overflow-hidden"
+           style="background: linear-gradient(120deg, #4338CA 0%, #4F46E5 50%, #6366F1 100%);">
+        <div class="absolute inset-0 pointer-events-none opacity-20"
+             style="background-image: radial-gradient(circle at 10% 30%, rgba(255,255,255,0.6) 0, transparent 30%), radial-gradient(circle at 90% 70%, rgba(255,255,255,0.4) 0, transparent 35%);"></div>
+        <div class="relative">
+          <h2 class="text-h3 font-bold mb-3">
+            {{ .Params.cta_title | default "成为 MatrixPlus 的合作伙伴" }}
+          </h2>
+          <p class="text-white/85 mb-7 max-w-2xl mx-auto">
+            {{ .Params.cta_subtitle | default "无论是技术对接、生态共建、渠道分销，还是源头供应链合作，欢迎与我们直接沟通。" }}
+          </p>
+          <a href="{{ "/contact/" | relLangURL }}"
+             class="inline-flex items-center px-6 py-3 rounded-full bg-white text-primary font-semibold hover:bg-white/90 transition">
+            {{ .Params.cta_label | default "申请合作" }}
+            <span class="ml-2">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+{{ end }}

@@ -1,0 +1,113 @@
+############# 中文导航 ##############
+
+# 主菜单 (Logo 已担当首页跳转, 不再独立 "首页" 项)
+
+# 产品 (parent 可点击)
+[[main]]
+name = "产品"
+url = "/products/"
+weight = 1
+
+[[main]]
+parent = "产品"
+name = "所有产品"
+url = "/products/"
+weight = 1
+
+[[main]]
+parent = "产品"
+name = "服务"
+url = "/services/"
+weight = 2
+
+# 方案
+[[main]]
+name = "方案"
+url = "/solutions/"
+weight = 2
+
+[[main]]
+parent = "方案"
+name = "行业解决方案"
+url = "/solutions/"
+weight = 1
+
+# 智库 (顶级, 无下拉)
+[[main]]
+name = "智库"
+url = "/insights/"
+weight = 3
+
+# 资源中心 (顶级, 无下拉)
+[[main]]
+name = "资源中心"
+url = "/resources/"
+weight = 4
+
+# 客户
+[[main]]
+name = "客户"
+url = "/cases/"
+weight = 5
+
+[[main]]
+parent = "客户"
+name = "合作伙伴"
+url = "/partners/"
+weight = 1
+
+[[main]]
+parent = "客户"
+name = "客户案例"
+url = "/cases/"
+weight = 2
+
+# 关于
+[[main]]
+name = "关于"
+url = "/about/"
+weight = 6
+
+[[main]]
+parent = "关于"
+name = "了解我们"
+url = "/about/"
+weight = 1
+
+[[main]]
+parent = "关于"
+name = "联系我们"
+url = "/contact/"
+weight = 2
+
+
+# 页脚菜单
+[[footer]]
+name = "产品"
+url = "/products/"
+weight = 1
+
+[[footer]]
+name = "开源产品"
+url = "/open-source/"
+weight = 2
+
+[[footer]]
+name = "智库"
+url = "/insights/"
+weight = 3
+
+[[footer]]
+name = "资源中心"
+url = "/resources/"
+weight = 4
+
+[[footer]]
+name = "了解我们"
+url = "/about/"
+weight = 5
+
+[[footer]]
+name = "联系我们"
+url = "/contact/"
+weight = 6

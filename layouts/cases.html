@@ -1,0 +1,210 @@
+{{ define "main" }}
+
+  {{/* ----- Title + intro ----- */}}
+  <section class="pt-20 pb-10">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="md:col-10 lg:col-9 xl:col-8 text-center">
+          <h1 class="text-h2 lg:text-h1 font-bold mb-4">{{ .Title }}</h1>
+          {{ with .Params.description }}
+            <p class="text-text-light dark:text-darkmode-text-light text-lg max-w-2xl mx-auto">
+              {{ . }}
+            </p>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {{/* ----- Stats band ----- */}}
+  {{ with .Params.stats }}
+    <section class="py-14 text-white relative overflow-hidden mb-16"
+             style="background: linear-gradient(120deg, #4338CA 0%, #4F46E5 50%, #6366F1 100%);">
+      <div class="absolute inset-0 pointer-events-none opacity-20"
+           style="background-image: radial-gradient(circle at 10% 30%, rgba(255,255,255,0.6) 0, transparent 30%), radial-gradient(circle at 90% 70%, rgba(255,255,255,0.4) 0, transparent 35%);"></div>
+
+      <div class="container relative">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-y-10 gap-x-6">
+          {{ range . }}
+            <div class="text-center">
+              <div class="text-4xl lg:text-5xl font-bold mb-2 tracking-tight">{{ .value }}</div>
+              <div class="text-sm lg:text-base text-white/80">{{ .label }}</div>
+            </div>
+          {{ end }}
+        </div>
+      </div>
+    </section>
+  {{ end }}
+
+  {{/* ----- Category filter + cards ----- */}}
+  {{ with .Params.cases }}
+    {{ $categories := $.Params.categories }}
+    <section class="pb-20">
+      <div class="container">
+
+        {{ with $categories }}
+          <div class="flex flex-wrap justify-center gap-2 mb-10" data-case-filter>
+            <button type="button"
+                    data-filter-target="all"
+                    class="case-filter-btn case-filter-btn-active inline-flex items-center px-4 py-2 rounded-full text-sm font-medium border transition">
+              {{ $.Params.filter_all_label | default "全部" }}
+              <span class="ml-2 text-xs opacity-70">({{ len $.Params.cases }})</span>
+            </button>
+            {{ range . }}
+              {{ $key := .key }}
+              {{ $count := 0 }}
+              {{ range $.Params.cases }}
+                {{ if eq .category $key }}{{ $count = add $count 1 }}{{ end }}
+              {{ end }}
+              <button type="button"
+                      data-filter-target="{{ $key }}"
+                      class="case-filter-btn inline-flex items-center px-4 py-2 rounded-full text-sm font-medium border transition">
+                {{ .label }}
+                <span class="ml-2 text-xs opacity-70">({{ $count }})</span>
+              </button>
+            {{ end }}
+          </div>
+        {{ end }}
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" data-case-grid>
+          {{ range . }}
+            <article
+              data-case-category="{{ .category }}"
+              class="case-card flex flex-col rounded-2xl border border-border dark:border-darkmode-border bg-light dark:bg-darkmode-light p-7 transition hover:border-primary dark:hover:border-darkmode-primary hover:shadow-lg">
+
+              <div class="flex flex-wrap gap-2 mb-4">
+                {{ range .tags }}
+                  <span class="inline-flex items-center text-[11px] font-semibold tracking-wide uppercase px-2 py-1 rounded-md bg-primary/10 dark:bg-darkmode-primary/10 text-primary dark:text-darkmode-primary">
+                    {{ . }}
+                  </span>
+                {{ end }}
+              </div>
+
+              <h3 class="text-h5 font-bold mb-2 leading-snug">{{ .title }}</h3>
+
+              {{ with .customer }}
+                <div class="text-sm text-text-light dark:text-darkmode-text-light mb-3">{{ . }}</div>
+              {{ end }}
+
+              {{ with .challenge }}
+                <p class="text-sm leading-relaxed mb-4">{{ . }}</p>
+              {{ end }}
+
+              {{ with .solution }}
+                <div class="text-xs uppercase tracking-wider text-text-light dark:text-darkmode-text-light font-semibold mb-2">
+                  {{ $.Params.label_solution | default "解决方案" }}
+                </div>
+                <ul class="space-y-1 text-sm mb-5">
+                  {{ range . }}
+                    <li class="flex items-start gap-2">
+                      <span class="text-primary dark:text-darkmode-primary mt-0.5 shrink-0">▸</span>
+                      <span>{{ . }}</span>
+                    </li>
+                  {{ end }}
+                </ul>
+              {{ end }}
+
+              {{ with .outcomes }}
+                <div class="mt-auto pt-5 border-t border-border dark:border-darkmode-border">
+                  <div class="text-xs uppercase tracking-wider text-text-light dark:text-darkmode-text-light font-semibold mb-3">
+                    {{ $.Params.label_outcomes | default "落地成果" }}
+                  </div>
+                  <ul class="space-y-2">
+                    {{ range . }}
+                      <li class="flex items-baseline gap-2">
+                        {{ if .value }}
+                          <span class="text-2xl font-bold text-primary dark:text-darkmode-primary shrink-0 leading-none">{{ .value }}</span>
+                        {{ end }}
+                        <span class="text-sm">{{ .label }}</span>
+                      </li>
+                    {{ end }}
+                  </ul>
+                </div>
+              {{ end }}
+
+            </article>
+          {{ end }}
+        </div>
+
+        <p data-case-empty class="hidden text-center text-text-light dark:text-darkmode-text-light mt-10">
+          {{ $.Params.filter_empty_label | default "暂无该分类下的案例" }}
+        </p>
+
+      </div>
+    </section>
+  {{ end }}
+
+  {{/* ----- CTA ----- */}}
+  <section class="pb-24">
+    <div class="container">
+      <div class="rounded-2xl border border-border dark:border-darkmode-border p-10 text-center">
+        <h2 class="text-h4 font-bold mb-3">
+          {{ .Params.cta_title | default "想和我们共建下一个案例?" }}
+        </h2>
+        <p class="text-text-light dark:text-darkmode-text-light mb-6 max-w-2xl mx-auto">
+          {{ .Params.cta_subtitle | default "无论是安全、研发、电商还是培训，欢迎告诉我们您的场景。" }}
+        </p>
+        <a href="{{ "/contact/" | relLangURL }}" class="btn btn-primary">
+          {{ .Params.cta_label | default "联系我们" }}
+        </a>
+      </div>
+    </div>
+  </section>
+
+  {{/* Case filter behaviour — URL hash persisted ( /cases/#commerce etc. ) */}}
+  <script>
+    (function () {
+      var filterRoot = document.querySelector('[data-case-filter]');
+      var grid = document.querySelector('[data-case-grid]');
+      var empty = document.querySelector('[data-case-empty]');
+      if (!filterRoot || !grid) return;
+
+      var buttons = filterRoot.querySelectorAll('.case-filter-btn');
+      var validTargets = Array.prototype.map.call(buttons, function (b) {
+        return b.getAttribute('data-filter-target');
+      });
+
+      function apply(target, opts) {
+        opts = opts || {};
+        if (validTargets.indexOf(target) === -1) target = 'all';
+
+        buttons.forEach(function (b) {
+          b.classList.toggle('case-filter-btn-active', b.getAttribute('data-filter-target') === target);
+        });
+
+        var cards = grid.querySelectorAll('.case-card');
+        var shown = 0;
+        cards.forEach(function (card) {
+          var visible = (target === 'all') || (card.getAttribute('data-case-category') === target);
+          card.style.display = visible ? '' : 'none';
+          if (visible) shown += 1;
+        });
+        if (empty) empty.classList.toggle('hidden', shown !== 0);
+
+        if (opts.updateHash) {
+          var newHash = (target === 'all') ? ' ' : '#' + target;
+          if (newHash === ' ') {
+            history.replaceState(null, '', location.pathname + location.search);
+          } else {
+            history.replaceState(null, '', newHash);
+          }
+        }
+      }
+
+      buttons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          apply(btn.getAttribute('data-filter-target'), { updateHash: true });
+        });
+      });
+
+      window.addEventListener('hashchange', function () {
+        var h = (location.hash || '').replace(/^#/, '');
+        apply(h || 'all', { updateHash: false });
+      });
+
+      var initial = (location.hash || '').replace(/^#/, '') || 'all';
+      apply(initial, { updateHash: false });
+    })();
+  </script>
+
+{{ end }}

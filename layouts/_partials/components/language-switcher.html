@@ -1,0 +1,53 @@
+{{/*
+  MatrixPlus language switcher
+  Two-language toggle rendered as a single icon button.
+  Clicking jumps directly to the translated page (or the translated home as fallback).
+*/}}
+{{ if hugo.IsMultilingual }}
+  {{ $context := .Context }}
+  {{ $pageLang := $context.Lang }}
+  {{ $pageTranslations := newScratch }}
+  {{ range site.Home.AllTranslations }}
+    {{ $pageTranslations.Set .Language.Lang .Permalink }}
+  {{ end }}
+  {{ range $context.AllTranslations }}
+    {{ $pageTranslations.Set .Language.Lang .Permalink }}
+  {{ end }}
+
+  {{ $target := "" }}
+  {{ $targetLabel := "" }}
+  {{ $targetAria := "" }}
+  {{ range site.Languages }}
+    {{ if ne .Lang $pageLang }}
+      {{ $link := $pageTranslations.Get .Lang }}
+      {{ if $link }}
+        {{ $target = $link }}
+        {{ if eq .Lang "zh-cn" }}
+          {{ $targetLabel = "中" }}
+          {{ $targetAria = "切换到中文" }}
+        {{ else if eq .Lang "en" }}
+          {{ $targetLabel = "EN" }}
+          {{ $targetAria = "Switch to English" }}
+        {{ else }}
+          {{ $targetLabel = .Lang | upper }}
+          {{ $targetAria = printf "Switch to %s" .Lang }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+
+  {{ if $target }}
+    <a
+      href="{{ $target }}"
+      aria-label="{{ $targetAria }}"
+      title="{{ $targetAria }}"
+      class="lang-switcher mr-3 inline-flex items-center gap-1 rounded-full border border-border dark:border-darkmode-border px-3 py-1 text-sm text-text-light hover:text-primary hover:border-primary dark:hover:text-darkmode-primary dark:hover:border-darkmode-primary transition-colors">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="10"></circle>
+        <path d="M2 12h20"></path>
+        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+      </svg>
+      <span class="font-medium">{{ $targetLabel }}</span>
+    </a>
+  {{ end }}
+{{ end }}
