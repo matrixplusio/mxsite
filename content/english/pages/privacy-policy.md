@@ -31,8 +31,8 @@ We commit to collecting information on a **minimum-necessary** basis and to proc
 The website is hosted on our own VPS. The nginx / openresty access log retains:
 
 - **IP address, User-Agent, referer, timestamp, request path**
-- Used for security protection, abuse detection, and troubleshooting
-- Rolled over and deleted after **30 days** by default
+- Used for security protection, abuse detection, compliance audit, and troubleshooting
+- Retained for **at least 180 days** by default, then rotated out
 
 ### 2.3 What we do **not** collect
 
@@ -61,7 +61,7 @@ We **will not**:
 | Type | Storage | Retention |
 |------|---------|-----------|
 | Email correspondence | Company email system | As long as necessary for business, up to 2 years |
-| Website access logs | VPS (Hong Kong, China) | 30 days |
+| Website access logs | VPS (Hong Kong, China) | At least 180 days |
 | Resource-download records | Internal CRM | As long as necessary for business, up to 3 years |
 | Commercial contracts and invoices | Internal finance system | As required by China's Accounting Archives regulation, ≥ 10 years |
 
@@ -122,10 +122,11 @@ This site and our services are **not directed at children under 14**. If we lear
 We apply the same engineering security standards we recommend to our customers to protect our own data:
 
 - HTTPS everywhere (TLS 1.2+)
-- Minimized server exposure surface, SSH key-only login, password login disabled
-- MFA on the company email system
-- Internal access on a least-privilege basis
-- Regular security audits and timely vulnerability remediation
+- Defense-in-depth and minimum-exposure posture across servers and operations infrastructure
+- Multi-factor authentication on internal accounts
+- Least-privilege access with periodic review
+- Full audit trail and alerting on critical operations
+- Regular security assessments, vulnerability remediation, and incident drills
 
 ## 12. Changes to this Policy
 
@@ -142,7 +143,7 @@ If you have any questions, complaints, or suggestions about this Policy:
 
 - **Email**: [contact@matrixplus.io](mailto:contact@matrixplus.io)
 - **Company**: Bytematrix (Shenzhen) Technology Co., Ltd.
-- **Address**: Xixiang sub-district, Bao'an District, Shenzhen, Guangdong, China
+- **Address**: Shenzhen, Guangdong, China
 
 ---
 
