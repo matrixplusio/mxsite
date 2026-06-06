@@ -59,3 +59,33 @@
     </div>
   </div>
 </footer>
+
+{{/* Back-to-top floating button */}}
+<button
+  type="button"
+  id="back-to-top"
+  aria-label="{{ T "back_to_top" | default "返回顶部" }}"
+  class="fixed bottom-6 right-6 z-50 h-11 w-11 rounded-full bg-primary text-white shadow-lg opacity-0 pointer-events-none translate-y-2 transition-all hover:opacity-100 hover:scale-110 dark:bg-darkmode-primary dark:text-darkmode-body flex items-center justify-center">
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M12 19V5"></path>
+    <path d="m5 12 7-7 7 7"></path>
+  </svg>
+</button>
+<script>
+  (function () {
+    var btn = document.getElementById('back-to-top');
+    if (!btn) return;
+    function toggle() {
+      var show = (window.scrollY || document.documentElement.scrollTop) > 400;
+      btn.classList.toggle('opacity-0', !show);
+      btn.classList.toggle('pointer-events-none', !show);
+      btn.classList.toggle('translate-y-2', !show);
+      btn.classList.toggle('opacity-90', show);
+    }
+    window.addEventListener('scroll', toggle, { passive: true });
+    btn.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    toggle();
+  })();
+</script>
