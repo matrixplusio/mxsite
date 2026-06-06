@@ -1,0 +1,142 @@
+---
+title: "资源中心"
+meta_title: "资源中心 — MatrixPlus"
+description: "MatrixPlus 白皮书、产品手册、案例研究、模板与工具，集中下载。"
+layout: "resources"
+draft: false
+
+filter_all_label: "全部"
+filter_empty_label: "暂无该分类下的资料"
+label_download: "下载"
+label_coming: "即将发布"
+cta_title: "找不到您想要的资料?"
+cta_subtitle: "告诉我们您的场景，我们可以提供定制的方案手册、案例研究或培训资料。"
+cta_label: "申请资料"
+
+categories:
+  - key: "whitepaper"
+    label: "白皮书"
+  - key: "datasheet"
+    label: "产品手册"
+  - key: "case-study"
+    label: "案例研究"
+  - key: "template"
+    label: "模板与工具"
+
+resources:
+  # 白皮书
+  - title: "云原生安全实践白皮书"
+    category: "whitepaper"
+    category_label: "白皮书"
+    description: "面向云原生工作负载的安全防护方法论：威胁面、防护框架、技术选型与落地路径。"
+    status:
+      key: "coming"
+      label: "即将发布"
+    format: "PDF"
+    size: "—"
+  - title: "企业 EIAM 选型指南"
+    category: "whitepaper"
+    category_label: "白皮书"
+    description: "从 SSO、MFA 到零信任授权，企业身份与访问管理的完整选型框架。"
+    status:
+      key: "coming"
+      label: "即将发布"
+    format: "PDF"
+    size: "—"
+
+  # 产品手册
+  - title: "mxsec-platform · 产品手册"
+    category: "datasheet"
+    category_label: "产品手册"
+    description: "开源云工作负载保护平台 (CWPP) 的能力总览、部署架构与典型场景。"
+    status:
+      key: "coming"
+      label: "即将发布"
+    format: "PDF"
+    size: "—"
+  - title: "mxid · 产品手册"
+    category: "datasheet"
+    category_label: "产品手册"
+    description: "企业身份与访问管理 (EIAM) 平台的能力清单、集成方式与合规支持。"
+    status:
+      key: "coming"
+      label: "即将发布"
+    format: "PDF"
+    size: "—"
+  - title: "mxcmdb · 产品手册"
+    category: "datasheet"
+    category_label: "产品手册"
+    description: "开源 CMDB 的资产模型、关系图谱、自动发现与开放接口说明。"
+    status:
+      key: "coming"
+      label: "即将发布"
+    format: "PDF"
+    size: "—"
+  - title: "ticketdesk · 产品手册"
+    category: "datasheet"
+    category_label: "产品手册"
+    description: "开源工单与服务台系统的功能矩阵、工作流编排与集成能力。"
+    status:
+      key: "coming"
+      label: "即将发布"
+    format: "PDF"
+    size: "—"
+
+  # 案例研究
+  - title: "跨国集团海外子公司安全运营 · 案例研究"
+    category: "case-study"
+    category_label: "案例研究"
+    description: "1 年 0 入侵：英国上市集团日本子公司的安全运营建设过程与方法论。"
+    status:
+      key: "coming"
+      label: "即将发布"
+    format: "PDF"
+    size: "—"
+  - title: "政企客户护网行动支撑 · 案例研究"
+    category: "case-study"
+    category_label: "案例研究"
+    description: "多次国家级护网行动的攻防准备、驻场策略与典型攻击链溯源 (脱敏版)。"
+    status:
+      key: "coming"
+      label: "即将发布"
+    format: "PDF"
+    size: "—"
+
+  # 模板与工具
+  - title: "等保 2.0 合规自查清单"
+    category: "template"
+    category_label: "模板"
+    description: "面向中小企业的等保 2.0 三级测评要点自查清单，可直接打印或导入团队工具。"
+    status:
+      key: "coming"
+      label: "整理中"
+    format: "PDF / Markdown"
+    size: "—"
+  - title: "渗透测试报告模板"
+    category: "template"
+    category_label: "模板"
+    description: "结构化的渗透测试报告模板，含执行摘要、漏洞清单、复现步骤、修复建议。"
+    status:
+      key: "coming"
+      label: "整理中"
+    format: "PDF / DOCX"
+    size: "—"
+  - title: "直播间话术与售后流程模板"
+    category: "template"
+    category_label: "模板"
+    description: "直播开播、转化、售后的全流程话术与流程模板，从电商团队实际剧本中提炼。"
+    status:
+      key: "coming"
+      label: "整理中"
+    format: "PDF / DOCX"
+    size: "—"
+  - title: "工单分类与 SLA 模板"
+    category: "template"
+    category_label: "模板"
+    description: "面向 IT、安全与客户支持团队的工单分类、优先级与 SLA 配置参考模板。"
+    status:
+      key: "coming"
+      label: "整理中"
+    format: "PDF / Markdown"
+    size: "—"
+---

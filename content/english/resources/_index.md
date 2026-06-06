@@ -1,0 +1,142 @@
+---
+title: "Resources"
+meta_title: "Resources — MatrixPlus"
+description: "MatrixPlus whitepapers, product datasheets, case studies, and templates in one place."
+layout: "resources"
+draft: false
+
+filter_all_label: "All"
+filter_empty_label: "No resources in this category yet."
+label_download: "Download"
+label_coming: "Coming soon"
+cta_title: "Don't see what you need?"
+cta_subtitle: "Tell us your scenario — we can prepare a custom solution brief, case study, or training brief."
+cta_label: "Request a resource"
+
+categories:
+  - key: "whitepaper"
+    label: "Whitepapers"
+  - key: "datasheet"
+    label: "Datasheets"
+  - key: "case-study"
+    label: "Case studies"
+  - key: "template"
+    label: "Templates"
+
+resources:
+  # Whitepapers
+  - title: "Cloud-native security practice · whitepaper"
+    category: "whitepaper"
+    category_label: "Whitepaper"
+    description: "A practitioner's methodology for protecting cloud-native workloads — threat surfaces, frameworks, technology selection, and rollout."
+    status:
+      key: "coming"
+      label: "Coming soon"
+    format: "PDF"
+    size: "—"
+  - title: "Enterprise EIAM selection guide"
+    category: "whitepaper"
+    category_label: "Whitepaper"
+    description: "From SSO and MFA to zero-trust authorization — a complete framework for picking the right identity platform."
+    status:
+      key: "coming"
+      label: "Coming soon"
+    format: "PDF"
+    size: "—"
+
+  # Datasheets
+  - title: "mxsec-platform · datasheet"
+    category: "datasheet"
+    category_label: "Datasheet"
+    description: "Capabilities, deployment architecture, and typical scenarios for the open-source CWPP."
+    status:
+      key: "coming"
+      label: "Coming soon"
+    format: "PDF"
+    size: "—"
+  - title: "mxid · datasheet"
+    category: "datasheet"
+    category_label: "Datasheet"
+    description: "Capabilities, integrations, and compliance support for the EIAM platform."
+    status:
+      key: "coming"
+      label: "Coming soon"
+    format: "PDF"
+    size: "—"
+  - title: "mxcmdb · datasheet"
+    category: "datasheet"
+    category_label: "Datasheet"
+    description: "Asset model, relationship graph, automated discovery, and open APIs for the CMDB."
+    status:
+      key: "coming"
+      label: "Coming soon"
+    format: "PDF"
+    size: "—"
+  - title: "ticketdesk · datasheet"
+    category: "datasheet"
+    category_label: "Datasheet"
+    description: "Feature matrix, workflow editor, and integrations for the open-source ticketing system."
+    status:
+      key: "coming"
+      label: "Coming soon"
+    format: "PDF"
+    size: "—"
+
+  # Case studies
+  - title: "Overseas subsidiary security operations · case study"
+    category: "case-study"
+    category_label: "Case study"
+    description: "One year, zero breaches: how we built security operations for the Japan subsidiary of a UK-listed group."
+    status:
+      key: "coming"
+      label: "Coming soon"
+    format: "PDF"
+    size: "—"
+  - title: "Government and enterprise red-team support · case study"
+    category: "case-study"
+    category_label: "Case study"
+    description: "Preparation, on-site execution, and kill-chain analysis across multiple national-level red-team exercises (anonymized)."
+    status:
+      key: "coming"
+      label: "Coming soon"
+    format: "PDF"
+    size: "—"
+
+  # Templates
+  - title: "MLPS 2.0 self-assessment checklist"
+    category: "template"
+    category_label: "Template"
+    description: "An MLPS 2.0 Level-3 self-assessment checklist for SMBs — print it or import into your team tooling."
+    status:
+      key: "coming"
+      label: "In preparation"
+    format: "PDF / Markdown"
+    size: "—"
+  - title: "Penetration test report template"
+    category: "template"
+    category_label: "Template"
+    description: "Structured pentest report template covering executive summary, vulnerability list, reproduction steps, and remediation."
+    status:
+      key: "coming"
+      label: "In preparation"
+    format: "PDF / DOCX"
+    size: "—"
+  - title: "Live-commerce script and after-sales template"
+    category: "template"
+    category_label: "Template"
+    description: "End-to-end scripts and process templates for live broadcasting, conversion, and after-sales — distilled from our own playbook."
+    status:
+      key: "coming"
+      label: "In preparation"
+    format: "PDF / DOCX"
+    size: "—"
+  - title: "Ticket classification & SLA template"
+    category: "template"
+    category_label: "Template"
+    description: "Reference templates for ticket taxonomy, priorities, and SLA configuration across IT, security, and customer support teams."
+    status:
+      key: "coming"
+      label: "In preparation"
+    format: "PDF / Markdown"
+    size: "—"
+---
