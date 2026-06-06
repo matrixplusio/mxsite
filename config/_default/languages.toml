@@ -4,6 +4,8 @@ label = "中文"
 locale = "zh-cn"
 contentDir = "content/chinese"
 weight = 1
+[zh-cn.params]
+tagline = "为企业矩阵赋能"
 
 ################ English ##################
 [en]
@@ -11,3 +13,5 @@ label = "EN"
 locale = "en-us"
 contentDir = "content/english"
 weight = 2
+[en.params]
+tagline = "Empowering the Enterprise Matrix"
