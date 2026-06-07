@@ -94,11 +94,39 @@ write_nginx_site() {
   fi
 
   cat >"$NGINX_SITE" <<NGINX
-# HTTP — handled here until certbot adds the TLS server block.
+# Canonical host is www.matrixplus.io. Apex 301-redirects to www so that the
+# Hugo baseURL (https://www.matrixplus.io/) matches the serving origin and
+# avoids cross-origin / SRI failures.
+#
+# certbot --nginx --redirect will:
+#   - upgrade each server block to listen 443 ssl with the shared cert
+#   - add 80 -> 443 redirect to the serving (www) block
+#   - leave the apex block's `return 301` intact (works on both 80 and 443)
+
+# --- Apex -> www (HTTP; certbot will clone this to HTTPS too) ---
+server {
+    listen 80;
+    listen [::]:80;
+    server_name ${DOMAIN_PRIMARY};
+
+    # ACME http-01 challenge — served from the same webroot as www so that
+    # `certbot renew` works even though apex otherwise 301s everything.
+    location ^~ /.well-known/acme-challenge/ {
+        root ${WEB_ROOT};
+        default_type "text/plain";
+        try_files \$uri =404;
+    }
+
+    location / {
+        return 301 \$scheme://${DOMAIN_WWW}\$request_uri;
+    }
+}
+
+# --- www: actual site ---
 server {
     listen 80 default_server;
     listen [::]:80 default_server;
-    server_name ${DOMAIN_PRIMARY} ${DOMAIN_WWW};
+    server_name ${DOMAIN_WWW};
 
     root ${WEB_ROOT};
     index index.html;
