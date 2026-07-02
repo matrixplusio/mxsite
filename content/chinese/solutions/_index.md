@@ -31,10 +31,10 @@ solutions:
     challenge: "银行、保险、证券与金融科技公司同时面对监管合规 (等保 2.0、商业银行 API 安全)、强身份认证与高强度攻防压力，缺乏一个统一可审计的安全底座。"
     offering:
       - "mxid 企业身份与访问管理，覆盖 SSO/MFA/SCIM 与策略即代码授权"
-      - "mxsec-platform 守护核心业务系统与 K8s 工作负载"
+      - "mxcwpp 守护核心业务系统与 K8s 工作负载"
       - "渗透测试与年度护网驻场支撑"
       - "面向监管的审计报表与证据导出"
-    capabilities: ["mxid", "mxsec-platform", "渗透测试", "护网行动"]
+    capabilities: ["mxid", "mxcwpp", "渗透测试", "护网行动"]
     case_link: "/cases/#security"
     case_label: "查看安全类案例"
 
@@ -43,11 +43,11 @@ solutions:
     title: "私有化部署与等保合规一体化"
     challenge: "政务部门与央国企对数据出境、私有化部署、等保合规与国家级护网行动有刚性要求，传统单一安全产品无法覆盖全链路。"
     offering:
-      - "mxsec-platform 私有化部署 (主机 / 容器 / K8s 全栈)"
+      - "mxcwpp 私有化部署 (主机 / 容器 / K8s 全栈)"
       - "等保 2.0 基线扫描、整改与合规报表"
       - "国家级护网行动期间蓝队驻场 + 红队演练"
       - "关键基础设施暴露面持续梳理"
-    capabilities: ["mxsec-platform", "等保合规", "护网驻场", "渗透测试"]
+    capabilities: ["mxcwpp", "等保合规", "护网驻场", "渗透测试"]
     case_link: "/cases/#security"
     case_label: "查看政企护网案例"
 
@@ -56,11 +56,11 @@ solutions:
     title: "海外子公司一站式安全运营"
     challenge: "跨国集团的海外子公司缺乏本地安全团队，集团合规与本地运营压力同时存在，常规外包难以覆盖工程化运营。"
     offering:
-      - "mxsec-platform 企业版 + 长期驻场工程师"
+      - "mxcwpp 企业版 + 长期驻场工程师"
       - "持续漏洞修复与系统基线整改"
       - "本地代码审计与渗透测试"
       - "符合集团总部口径的安全审计报表"
-    capabilities: ["mxsec-platform", "驻场服务", "代码审计", "安全运营"]
+    capabilities: ["mxcwpp", "驻场服务", "代码审计", "安全运营"]
     case_link: "/cases/#security"
     case_label: "查看英国集团子公司案例"
 
@@ -69,11 +69,11 @@ solutions:
     title: "云原生安全 + 工程外援"
     challenge: "互联网公司迭代速度快，安全团队人手紧张，DevSecOps 落地难；同时业务系统需要补足数据中台、定制工具与运维托管能力。"
     offering:
-      - "mxsec-platform 覆盖大规模 Kubernetes 与混合云"
+      - "mxcwpp 覆盖大规模 Kubernetes 与混合云"
       - "DevSecOps 流水线接入与红线规则"
       - "数据中台与自研工具按需开发"
       - "SRE / 运维托管支撑核心业务"
-    capabilities: ["mxsec-platform", "DevSecOps", "定制研发", "SRE"]
+    capabilities: ["mxcwpp", "DevSecOps", "定制研发", "SRE"]
     case_link: "/cases/#engineering"
     case_label: "查看自营研发案例"
 
@@ -96,11 +96,11 @@ solutions:
     title: "面向高并发与强对抗的安全与研发"
     challenge: "游戏与互动娱乐业务面对高并发、强对抗 (外挂、刷量、黑产)、未成年合规与海外发行多重压力；自研团队需要稳定的安全底座与可外援的工程能力。"
     offering:
-      - "mxsec-platform 守护游戏服务器与容器化后端"
+      - "mxcwpp 守护游戏服务器与容器化后端"
       - "mxid 账号体系 + 实名 / 防沉迷合规接入"
       - "反外挂、反作弊与黑产对抗策略支持"
       - "定制后端 / 中台 / 区块链相关模块研发"
-    capabilities: ["mxsec-platform", "mxid", "反外挂", "定制研发"]
+    capabilities: ["mxcwpp", "mxid", "反外挂", "定制研发"]
     case_link: "/cases/#engineering"
     case_label: "查看研发案例"
 

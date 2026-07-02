@@ -111,7 +111,7 @@ This site uses the following third-party services. Please refer to their respect
 | jsDelivr CDN | Mermaid diagram rendering library | [jsDelivr Privacy](https://www.jsdelivr.com/privacy-policy-jsdelivr-net) |
 | Let's Encrypt | TLS certificate issuance | [Let's Encrypt Privacy](https://letsencrypt.org/privacy/) |
 
-Our open-source products ([mxsec-platform](/en/products/mxsec-platform/), [mxid](/en/products/mxid/), [mxcmdb](/en/products/mxcmdb/), [ticketdesk](/en/products/ticketdesk/)) run inside the customer's own environment; data processing in those deployments is the customer's responsibility as an independent data controller.
+Our open-source products ([mxcwpp](/en/products/mxcwpp/), [mxid](/en/products/mxid/), [mxcmdb](/en/products/mxcmdb/), [ticketdesk](/en/products/ticketdesk/)) run inside the customer's own environment; data processing in those deployments is the customer's responsibility as an independent data controller.
 
 ## 10. Minors
 

@@ -79,7 +79,7 @@ graph LR
   SYS -->|SCIM| LIFECYCLE
 
   AUDIT -.-> CMDB[mxcmdb]
-  AUTH -.-> MXSEC[mxsec-platform]
+  AUTH -.-> MXSEC[mxcwpp]
 {{< /mermaid >}}
 
 ## 核心能力（5 大模块）
@@ -123,7 +123,7 @@ graph LR
 
 | 联动 | 价值 |
 |------|------|
-| **[mxsec-platform](/products/mxsec-platform/)** · 安全平台 | 异常登录、权限滥用直接生成安全告警 |
+| **[mxcwpp](/products/mxcwpp/)** · 安全平台 | 异常登录、权限滥用直接生成安全告警 |
 | **[mxcmdb](/products/mxcmdb/)** · 资产图谱 | 身份与资产权限关联，回答"谁有什么权限" |
 | **[ticketdesk](/products/ticketdesk/)** · 工单 | 权限申请走审批流，全程可追溯 |
 
@@ -146,8 +146,8 @@ graph LR
 
 ## 已落地案例
 
-- **MatrixPlus 自营业务** —— 所有内部系统统一身份, 包含 mxsec、mxcmdb、ticketdesk 自身
-- **企业客户** —— 与 mxsec 一起在跨国集团子公司部署, 完成 SSO + 审计落地
+- **MatrixPlus 自营业务** —— 所有内部系统统一身份, 包含 mxcwpp、mxcmdb、ticketdesk 自身
+- **企业客户** —— 与 mxcwpp 一起在跨国集团子公司部署, 完成 SSO + 审计落地
 
 → [查看相关案例](/cases/#engineering)
 

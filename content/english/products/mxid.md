@@ -79,7 +79,7 @@ graph LR
   SYS -->|SCIM| LIFECYCLE
 
   AUDIT -.-> CMDB[mxcmdb]
-  AUTH -.-> MXSEC[mxsec-platform]
+  AUTH -.-> MXSEC[mxcwpp]
 {{< /mermaid >}}
 
 ## Core capabilities (five modules)
@@ -123,7 +123,7 @@ graph LR
 
 | Integration | Value |
 |-------------|-------|
-| **[mxsec-platform](/en/products/mxsec-platform/)** · security | Anomalous logins and privilege abuse generate security alerts directly |
+| **[mxcwpp](/en/products/mxcwpp/)** · security | Anomalous logins and privilege abuse generate security alerts directly |
 | **[mxcmdb](/en/products/mxcmdb/)** · asset graph | Identities link to assets and entitlements — "who has what access" |
 | **[ticketdesk](/en/products/ticketdesk/)** · ticketing | Access requests run through approval flows with full traceability |
 
@@ -146,8 +146,8 @@ graph LR
 
 ## Live deployments
 
-- **MatrixPlus self-operated business** — unified identity across all internal systems, including mxsec, mxcmdb, and ticketdesk themselves
-- **Enterprise customers** — deployed together with mxsec at multinational subsidiaries, delivering SSO and audit
+- **MatrixPlus self-operated business** — unified identity across all internal systems, including mxcwpp, mxcmdb, and ticketdesk themselves
+- **Enterprise customers** — deployed together with mxcwpp at multinational subsidiaries, delivering SSO and audit
 
 → [Related case studies](/en/cases/#engineering)
 

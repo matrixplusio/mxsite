@@ -18,9 +18,9 @@ label_docs: "Docs"
 label_note: "Note"
 
 projects:
-  - key: "mxsec-platform"
+  - key: "mxcwpp"
     tag: "Cloud Workload Protection"
-    name: "mxsec-platform"
+    name: "mxcwpp"
     tagline: "Cloud Workload Protection Platform (CWPP)"
     status:
       key: "public"
@@ -29,8 +29,8 @@ projects:
     language: "Go · TypeScript"
     category: "CWPP / cloud-native security"
     repo_url: "https://github.com/matrixplusio"
-    product_url: "/en/products/mxsec-platform/"
-    description: "mxsec-platform is a Cloud Workload Protection Platform for the cloud-native era — unified protection across hosts, containers, and Kubernetes. The Community Edition is fully open source — auditable and extensible. The Enterprise Edition targets production-scale customers with high availability, multi-tenancy, and SLA support."
+    product_url: "/en/products/mxcwpp/"
+    description: "mxcwpp is a Cloud Workload Protection Platform for the cloud-native era — unified protection across hosts, containers, and Kubernetes. The Community Edition is fully open source — auditable and extensible. The Enterprise Edition targets production-scale customers with high availability, multi-tenancy, and SLA support."
     features:
       - "Unified protection across hosts, containers, and Kubernetes"
       - "eBPF-based runtime threat detection"
@@ -83,7 +83,7 @@ projects:
       - "Cloud resource sync (Alibaba / Tencent / AWS / GCP)"
       - "Custom asset types and fields"
       - "REST API + webhooks"
-      - "Native integration with mxsec / mxid / ticketdesk"
+      - "Native integration with mxcwpp / mxid / ticketdesk"
       - "Audit trail and change history"
     editions:
       - name: "Community Edition"
@@ -127,7 +127,7 @@ projects:
       - "Visual workflow editor"
       - "Customer self-service portal and knowledge base"
       - "Reports, dashboards, and exports"
-      - "Linked with mxcmdb / mxsec / mxid"
+      - "Linked with mxcmdb / mxcwpp / mxid"
       - "Full REST API"
     editions:
       - name: "Community Edition"

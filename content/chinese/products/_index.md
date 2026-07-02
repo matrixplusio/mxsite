@@ -10,15 +10,15 @@ label_contact: "联系销售"
 label_highlights: "关键能力"
 
 products:
-  - key: "mxsec-platform"
+  - key: "mxcwpp"
     tag: "云工作负载保护 · CWPP"
-    name: "mxsec-platform"
+    name: "mxcwpp"
     tagline: "面向云原生的工作负载保护平台"
     status:
       key: "ga"
       label: "正式版"
     description: "在主机、容器、Kubernetes 之间提供统一的安全防护视角。运行时检测、漏洞管理、配置基线、合规审计一站式。社区版完整开源, 企业版面向规模化生产。"
-    detail_url: "/products/mxsec-platform/"
+    detail_url: "/products/mxcwpp/"
     repo_url: "https://github.com/matrixplusio"
     contact_url: "/contact/"
     highlights:
@@ -47,7 +47,7 @@ products:
     status:
       key: "ga"
       label: "正式版"
-    description: "面向企业 IT 资产与配置数据的统一管理：域名、服务器、应用服务、网络设备、证书等多类型资产，全部纳入同一图谱，可被 mxsec、mxid 与外部工单系统直接消费。"
+    description: "面向企业 IT 资产与配置数据的统一管理：域名、服务器、应用服务、网络设备、证书等多类型资产，全部纳入同一图谱，可被 mxcwpp、mxid 与外部工单系统直接消费。"
     detail_url: "/products/mxcmdb/"
     repo_url: "https://github.com/matrixplusio"
     contact_url: "/contact/"
@@ -58,7 +58,7 @@ products:
       - "云资源同步 (阿里 / 腾讯 / AWS)"
       - "灵活的自定义资产模型"
       - "完整 REST API + Webhook"
-      - "与 mxsec / mxid 原生集成"
+      - "与 mxcwpp / mxid 原生集成"
       - "审计追溯与变更历史"
     editions:
       - name: "社区版 · Community"
@@ -77,7 +77,7 @@ products:
     status:
       key: "ga"
       label: "正式版"
-    description: "面向 IT、安全与客户支持团队的开源工单系统：多渠道受理、SLA 管理、自动化工作流与客户门户，一套搞定。可与 mxcmdb / mxsec / mxid 联动，形成完整的运营闭环。"
+    description: "面向 IT、安全与客户支持团队的开源工单系统：多渠道受理、SLA 管理、自动化工作流与客户门户，一套搞定。可与 mxcmdb / mxcwpp / mxid 联动，形成完整的运营闭环。"
     detail_url: "/products/ticketdesk/"
     repo_url: "https://github.com/matrixplusio"
     contact_url: "/contact/"

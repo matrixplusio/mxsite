@@ -1,14 +1,14 @@
 ---
 title: "mxcmdb"
 meta_title: "mxcmdb — 开源企业 IT 资产与配置管理 (CMDB) — MatrixPlus"
-description: "mxcmdb 把企业 IT 资产 —— 域名、服务器、应用服务、网络设备、证书 —— 全部纳入同一图谱，并与 mxsec、mxid、ticketdesk 原生联动。"
+description: "mxcmdb 把企业 IT 资产 —— 域名、服务器、应用服务、网络设备、证书 —— 全部纳入同一图谱，并与 mxcwpp、mxid、ticketdesk 原生联动。"
 date: 2026-06-07
 draft: false
 ---
 
 ## 概览
 
-**mxcmdb** 是 MatrixPlus 开源的**配置管理数据库（CMDB）**，专为现代 IT 与安全运营场景而设计。它把散落在脚本、表格与各平台的资产信息收拢到**一张图谱**，让 mxsec、mxid、ticketdesk 都能消费**同一份事实来源**。
+**mxcmdb** 是 MatrixPlus 开源的**配置管理数据库（CMDB）**，专为现代 IT 与安全运营场景而设计。它把散落在脚本、表格与各平台的资产信息收拢到**一张图谱**，让 mxcwpp、mxid、ticketdesk 都能消费**同一份事实来源**。
 
 CMDB 不应该是被动数据库。mxcmdb 把它做成**开发者的内部 API**：所有资产数据可被消费、可被订阅、可被关系图遍历，每一次变更都有审计轨迹。
 
@@ -64,7 +64,7 @@ graph LR
   ASSET --> SUB
 
   subgraph CON[消费方]
-    MXSEC[mxsec-platform<br/>告警关联资产]
+    MXSEC[mxcwpp<br/>告警关联资产]
     MXID[mxid<br/>身份与资产权限]
     TICKET[ticketdesk<br/>工单关联资产]
     EXT[外部 ITSM / SIEM]
@@ -89,7 +89,7 @@ graph LR
 
 ### 2. 自动发现 + 手动维护
 
-- Agent 自动上报：与 mxsec-agent 复用通道
+- Agent 自动上报：与 mxcwpp-agent 复用通道
 - Agentless 网络扫描：适用于设备与证书
 - 云厂商 API 同步：阿里 / 腾讯 / AWS / GCP / Azure
 - 批量导入：Excel / API / Terraform Provider
@@ -119,7 +119,7 @@ graph LR
 
 | 联动 | 价值 |
 |------|------|
-| **[mxsec-platform](/products/mxsec-platform/)** · 安全平台 | 安全告警/漏洞自动关联资产，秒级看出影响面 |
+| **[mxcwpp](/products/mxcwpp/)** · 安全平台 | 安全告警/漏洞自动关联资产，秒级看出影响面 |
 | **[mxid](/products/mxid/)** · 统一身份 | 身份与资产权限矩阵，回答"谁能登录哪台机器" |
 | **[ticketdesk](/products/ticketdesk/)** · 工单 | 工单关联到资产，变更与故障可追溯 |
 
@@ -142,7 +142,7 @@ graph LR
 ## 已落地案例
 
 - **MatrixPlus 自营业务** —— 为内部研发、运维、电商业务提供统一资产视图
-- **企业客户** —— 与 mxsec 一起做政企客户的资产盘点与漏洞影响面分析
+- **企业客户** —— 与 mxcwpp 一起做政企客户的资产盘点与漏洞影响面分析
 
 → [查看相关案例](/cases/#engineering)
 

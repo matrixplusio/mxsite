@@ -21,7 +21,7 @@ categories:
     status:
       key: "open"
       label: "积极对接中"
-    description: "围绕 mxsec-platform、mxid 等核心产品的协议适配、API 集成与共建。把对方的产品/能力与我们的安全与身份基础设施打通，给共同客户更完整的方案。"
+    description: "围绕 mxcwpp、mxid 等核心产品的协议适配、API 集成与共建。把对方的产品/能力与我们的安全与身份基础设施打通，给共同客户更完整的方案。"
     we_offer:
       - "API / SDK / 协议适配支持"
       - "联合解决方案设计与白皮书"
@@ -51,7 +51,7 @@ categories:
       - "媒体、活动与社区组织"
     partners:
       - name: "GitHub · matrixplusio 开源组织"
-        note: "mxsec-platform 等开源项目托管"
+        note: "mxcwpp 等开源项目托管"
       - name: "集团内协同 · 工程公司"
         note: "工程项目交付与施工能力协同"
       - name: "集团内协同 · 生物医药公司"

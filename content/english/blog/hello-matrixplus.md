@@ -1,7 +1,7 @@
 ---
 title: "Hello, MatrixPlus"
 meta_title: "Hello, MatrixPlus — Bytematrix launches its technology brand"
-description: "Bytematrix launches the MatrixPlus technology brand, open-sources four core products — mxsec-platform, mxid, mxcmdb, ticketdesk — and opens up its security, engineering, commerce, and training capabilities."
+description: "Bytematrix launches the MatrixPlus technology brand, open-sources four core products — mxcwpp, mxid, mxcmdb, ticketdesk — and opens up its security, engineering, commerce, and training capabilities."
 date: 2026-06-06T00:00:00Z
 categories: ["Announcements"]
 category: "story"
@@ -39,7 +39,7 @@ We believe **security infrastructure is only trustworthy when it's open, and eng
 
 | Product | Domain | Repository |
 |---------|--------|------------|
-| [**mxsec-platform**](/en/products/mxsec-platform/) | Cloud Workload Protection (CWPP) | [GitHub](https://github.com/matrixplusio) |
+| [**mxcwpp**](/en/products/mxcwpp/) | Cloud Workload Protection (CWPP) | [GitHub](https://github.com/matrixplusio) |
 | [**mxid**](/en/products/mxid/) | Enterprise Identity & Access Management (EIAM) | [GitHub](https://github.com/matrixplusio) |
 | [**mxcmdb**](/en/products/mxcmdb/) | Configuration Management Database (CMDB) | [GitHub](https://github.com/matrixplusio) |
 | [**ticketdesk**](/en/products/ticketdesk/) | Ticketing and service desk | [GitHub](https://github.com/matrixplusio) |
@@ -49,7 +49,7 @@ All four ship under **AGPL-3.0**, in both **Community** and **Enterprise** editi
 - **Community Edition** — full core capability, free and open, available to anyone — individuals, small teams, contributors.
 - **Enterprise Edition** — adds HA, multi-tenancy, compliance audit, SLA-backed support, and long-term maintenance on top of the Community Edition for production-scale deployments.
 
-The four products are **designed to compose**: alerts from mxsec turn into tickets in ticketdesk; tickets link back to assets in mxcmdb; access flows through mxid for unified authentication. Together they cover an opinionated open-source stack for **assets, security, operations, and identity**.
+The four products are **designed to compose**: alerts from mxcwpp turn into tickets in ticketdesk; tickets link back to assets in mxcmdb; access flows through mxid for unified authentication. Together they cover an opinionated open-source stack for **assets, security, operations, and identity**.
 
 ## What we believe
 

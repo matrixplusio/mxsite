@@ -45,7 +45,7 @@ resources:
     size: "—"
 
   # Datasheets
-  - title: "mxsec-platform · datasheet"
+  - title: "mxcwpp · datasheet"
     category: "datasheet"
     category_label: "Datasheet"
     description: "Capabilities, deployment architecture, and typical scenarios for the open-source CWPP."

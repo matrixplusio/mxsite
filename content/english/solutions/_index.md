@@ -30,10 +30,10 @@ solutions:
     challenge: "Banks, insurers, securities, and fintech firms juggle heavy regulation, hardened authentication, and serious adversarial pressure — without a unified, auditable security plane."
     offering:
       - "mxid for identity, SSO/MFA/SCIM, and policy-as-code authorization"
-      - "mxsec-platform protecting core business systems and Kubernetes workloads"
+      - "mxcwpp protecting core business systems and Kubernetes workloads"
       - "Pentest plus annual red-team / on-site blue-team support"
       - "Regulator-ready audit and evidence exports"
-    capabilities: ["mxid", "mxsec-platform", "Pentest", "Red Team"]
+    capabilities: ["mxid", "mxcwpp", "Pentest", "Red Team"]
     case_link: "/en/cases/#security"
     case_label: "See security cases"
 
@@ -42,11 +42,11 @@ solutions:
     title: "Private deployment with end-to-end compliance"
     challenge: "Government and central / state-owned enterprises require private deployment, MLPS 2.0 compliance, and national-level red-team support — single-product vendors cannot cover the full chain."
     offering:
-      - "mxsec-platform private deployment (host / container / Kubernetes)"
+      - "mxcwpp private deployment (host / container / Kubernetes)"
       - "MLPS 2.0 baseline scanning, remediation, and compliance reporting"
       - "On-site blue team plus external red team during national exercises"
       - "Continuous exposure mapping for critical infrastructure"
-    capabilities: ["mxsec-platform", "MLPS 2.0", "On-site Blue Team", "Pentest"]
+    capabilities: ["mxcwpp", "MLPS 2.0", "On-site Blue Team", "Pentest"]
     case_link: "/en/cases/#security"
     case_label: "See government cases"
 
@@ -55,11 +55,11 @@ solutions:
     title: "Turnkey security operations for overseas subsidiaries"
     challenge: "Overseas subsidiaries of multinational groups lack local security teams. Group compliance and local operations both demand attention — generic outsourcing rarely covers engineering-grade operations."
     offering:
-      - "mxsec-platform Enterprise with long-term on-site engineers"
+      - "mxcwpp Enterprise with long-term on-site engineers"
       - "Continuous vulnerability remediation and baseline hardening"
       - "Local code audit and pentest"
       - "Group-aligned security audit and reporting"
-    capabilities: ["mxsec-platform", "On-site Service", "Code Audit", "Security Operations"]
+    capabilities: ["mxcwpp", "On-site Service", "Code Audit", "Security Operations"]
     case_link: "/en/cases/#security"
     case_label: "See UK-group case"
 
@@ -68,11 +68,11 @@ solutions:
     title: "Cloud-native security plus engineering reinforcement"
     challenge: "Internet companies ship fast, security teams are under-staffed, and DevSecOps is hard to land. Business systems also need data platforms, custom tooling, and managed operations to keep up."
     offering:
-      - "mxsec-platform across large-scale Kubernetes and hybrid cloud"
+      - "mxcwpp across large-scale Kubernetes and hybrid cloud"
       - "DevSecOps pipeline integration with policy guardrails"
       - "On-demand custom development and data platforms"
       - "SRE / managed operations for core systems"
-    capabilities: ["mxsec-platform", "DevSecOps", "Custom dev", "SRE"]
+    capabilities: ["mxcwpp", "DevSecOps", "Custom dev", "SRE"]
     case_link: "/en/cases/#engineering"
     case_label: "See engineering case"
 
@@ -95,11 +95,11 @@ solutions:
     title: "Security and engineering for high-concurrency, high-adversary workloads"
     challenge: "Gaming and interactive entertainment face high concurrency, hostile actors (cheating, bots, grey markets), youth-protection compliance, and overseas-publishing demands all at once. In-house teams need a reliable security foundation plus reinforceable engineering capacity."
     offering:
-      - "mxsec-platform protecting game servers and containerized backends"
+      - "mxcwpp protecting game servers and containerized backends"
       - "mxid account system with KYC and anti-addiction compliance hooks"
       - "Anti-cheat and grey-market countermeasures"
       - "Custom backend, platform, and blockchain modules on demand"
-    capabilities: ["mxsec-platform", "mxid", "Anti-cheat", "Custom dev"]
+    capabilities: ["mxcwpp", "mxid", "Anti-cheat", "Custom dev"]
     case_link: "/en/cases/#engineering"
     case_label: "See engineering case"
 

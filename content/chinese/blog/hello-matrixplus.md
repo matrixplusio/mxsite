@@ -1,7 +1,7 @@
 ---
 title: "Hello, MatrixPlus"
 meta_title: "Hello, MatrixPlus — 字节矩阵的科技品牌正式发布"
-description: "字节矩阵推出 MatrixPlus 科技品牌，开源 mxsec-platform、mxid、mxcmdb、ticketdesk 四款核心产品，并把安全、研发、电商与培训四大业务板块的能力对外开放。"
+description: "字节矩阵推出 MatrixPlus 科技品牌，开源 mxcwpp、mxid、mxcmdb、ticketdesk 四款核心产品，并把安全、研发、电商与培训四大业务板块的能力对外开放。"
 date: 2026-06-06T00:00:00Z
 categories: ["公告"]
 category: "story"
@@ -39,7 +39,7 @@ draft: false
 
 | 产品 | 定位 | 仓库 |
 |------|------|------|
-| [**mxsec-platform**](/products/mxsec-platform/) | 云工作负载保护平台 (CWPP) | [GitHub](https://github.com/matrixplusio) |
+| [**mxcwpp**](/products/mxcwpp/) | 云工作负载保护平台 (CWPP) | [GitHub](https://github.com/matrixplusio) |
 | [**mxid**](/products/mxid/) | 企业身份与访问管理 (EIAM) | [GitHub](https://github.com/matrixplusio) |
 | [**mxcmdb**](/products/mxcmdb/) | 企业 IT 资产与配置管理 (CMDB) | [GitHub](https://github.com/matrixplusio) |
 | [**ticketdesk**](/products/ticketdesk/) | 工单与服务台 | [GitHub](https://github.com/matrixplusio) |
@@ -49,7 +49,7 @@ draft: false
 - **社区版** —— 完整核心能力，免费开源，个人、小团队、社区贡献者都可自由使用。
 - **企业版** —— 在社区版之上提供高可用、多租户、合规审计、SLA 工单与长期支持，面向规模化生产场景。
 
-更关键的是，这四款产品**天然集成**：mxsec 告警可以一键转为 ticketdesk 工单，工单可以关联 mxcmdb 中的资产，所有访问通过 mxid 统一身份认证。四款产品在一起，是一套覆盖「资产 / 安全 / 运营 / 身份」的完整开源底座。
+更关键的是，这四款产品**天然集成**：mxcwpp 告警可以一键转为 ticketdesk 工单，工单可以关联 mxcmdb 中的资产，所有访问通过 mxid 统一身份认证。四款产品在一起，是一套覆盖「资产 / 安全 / 运营 / 身份」的完整开源底座。
 
 ## 我们相信什么
 

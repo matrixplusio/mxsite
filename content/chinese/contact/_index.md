@@ -6,4 +6,4 @@ layout: "contact"
 draft: false
 ---
 
-无论是 mxsec-platform 的部署落地，还是 mxid 的企业级身份治理项目，欢迎与我们直接交流。
+无论是 mxcwpp 的部署落地，还是 mxid 的企业级身份治理项目，欢迎与我们直接交流。

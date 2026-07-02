@@ -19,7 +19,7 @@ categories:
     status:
       key: "open"
       label: "Actively onboarding"
-    description: "Protocol adaptation, API integration, and co-built solutions around mxsec-platform and mxid. We connect partner capabilities with our security and identity infrastructure so customers get a more complete answer."
+    description: "Protocol adaptation, API integration, and co-built solutions around mxcwpp and mxid. We connect partner capabilities with our security and identity infrastructure so customers get a more complete answer."
     we_offer:
       - "API / SDK / protocol integration support"
       - "Joint solution design and whitepapers"
@@ -49,7 +49,7 @@ categories:
       - "Media, events, and community organizations"
     partners:
       - name: "GitHub · matrixplusio organization"
-        note: "Home of mxsec-platform and other open-source projects"
+        note: "Home of mxcwpp and other open-source projects"
       - name: "Group affiliate · Engineering company"
         note: "Project delivery and engineering execution capability"
       - name: "Group affiliate · Biopharma company"

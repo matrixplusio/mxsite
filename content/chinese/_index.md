@@ -11,7 +11,7 @@ banner:
 
 # Features
 features:
-  - title: "mxsec-platform —— 已在 3000+ 台主机部署的开源 CWPP"
+  - title: "mxcwpp —— 已在 3000+ 台主机部署的开源 CWPP"
     image: "/images/service-1.png"
     content: "面向云原生时代的开源云工作负载保护平台 (CWPP)，主机、容器、Kubernetes 全栈防护。基于 eBPF 的运行时检测、漏洞 / 基线 / 代码扫描一体化，社区版完整开源 (AGPL-3.0)，企业版面向规模化生产。"
     bulletpoints:
@@ -22,14 +22,14 @@ features:
       - "8 Kafka Topic + DLQ 业务域级数据面"
     button:
       enable: true
-      label: "了解 mxsec-platform"
-      link: "/products/mxsec-platform/"
+      label: "了解 mxcwpp"
+      link: "/products/mxcwpp/"
 
   - title: "覆盖资产 · 安全 · 身份 · 运营的开源产品矩阵"
     image: "/images/service-2.png"
     content: "MatrixPlus 一次性开源四款核心产品，**天然集成**：安全告警一键关联资产、生成工单、走完审批流，全部通过统一身份认证。全部 AGPL-3.0，社区版 + 企业版双轨。"
     bulletpoints:
-      - "**mxsec-platform** · 云工作负载保护 (CWPP)"
+      - "**mxcwpp** · 云工作负载保护 (CWPP)"
       - "**mxid** · 企业身份与访问管理 (EIAM)"
       - "**mxcmdb** · IT 资产与配置图谱 (CMDB)"
       - "**ticketdesk** · 项目化工单与告警联动"

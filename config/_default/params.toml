@@ -75,7 +75,7 @@ content = ""
 # seo module: https://github.com/gethugothemes/hugo-modules/tree/master/seo-tools/basic-seo
 [metadata]
 keywords = ["MatrixPlus", "Bytematrix", "字节矩阵", "CWPP", "EIAM", "CMDB", "Ticketing", "Cloud Security", "Identity", "云安全", "身份认证", "工单系统", "直播电商"]
-description = "MatrixPlus — 字节矩阵的科技品牌, 围绕网络安全、软件研发与运维、电子商务、专业培训四大业务板块, 开源 mxsec-platform、mxid、mxcmdb、ticketdesk 四款核心产品。"
+description = "MatrixPlus — 字节矩阵的科技品牌, 围绕网络安全、软件研发与运维、电子商务、专业培训四大业务板块, 开源 mxcwpp、mxid、mxcmdb、ticketdesk 四款核心产品。"
 author = "MatrixPlus"
 twitter = ""
 image = "images/og-image.png"

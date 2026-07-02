@@ -42,7 +42,7 @@ cases:
     tags: ["Security", "Managed Service"]
     challenge: "An overseas subsidiary without a dedicated security team faced both group compliance and operational pressure, and needed unified workload protection plus continuous compliance."
     solution:
-      - "Deployed mxsec-platform Enterprise (EDR / vuln / baseline / SAST)"
+      - "Deployed mxcwpp Enterprise (EDR / vuln / baseline / SAST)"
       - "Two on-site security engineers embedded with local IT"
       - "Continuous vulnerability remediation and baseline hardening"
       - "Regular pentest and security audits"

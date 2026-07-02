@@ -10,7 +10,7 @@ draft: false
 
 **ticketdesk** 是 MatrixPlus 开源的**项目化工单与告警联动系统**，专为运维、安全与研发团队设计 —— **一切问题都是工单，一切告警都必须被跟进。**
 
-它把 Jira-like 工单能力、告警自动建单、可视化流程引擎与权限审批合并到一个平台，覆盖问题从"被发现"到"被关闭"的完整闭环；通过与 mxcmdb / mxsec / mxid 的原生集成，可以让一条告警自动关联资产、生成工单、走完审批流，并落到正确的工程师手里。
+它把 Jira-like 工单能力、告警自动建单、可视化流程引擎与权限审批合并到一个平台，覆盖问题从"被发现"到"被关闭"的完整闭环；通过与 mxcmdb / mxcwpp / mxid 的原生集成，可以让一条告警自动关联资产、生成工单、走完审批流，并落到正确的工程师手里。
 
 ## 关键指标
 
@@ -30,7 +30,7 @@ graph LR
   subgraph SRC[告警与触发源]
     PROM[Prometheus<br/>Alertmanager]
     N9E[夜莺 N9E]
-    MXSEC[mxsec-platform<br/>告警]
+    MXSEC[mxcwpp<br/>告警]
     WEB[Web UI<br/>手动建单]
   end
 
@@ -109,7 +109,7 @@ graph LR
 
 | 联动 | 价值 |
 |------|------|
-| **[mxsec-platform](/products/mxsec-platform/)** · 安全告警 | 安全告警一键转工单，处置全程可追溯 |
+| **[mxcwpp](/products/mxcwpp/)** · 安全告警 | 安全告警一键转工单，处置全程可追溯 |
 | **[mxcmdb](/products/mxcmdb/)** · 资产图谱 | 工单关联到具体资产 / 服务 / 域名 |
 | **[mxid](/products/mxid/)** · 统一身份 | SSO 登录 + RBAC 同步 + 操作审计 |
 

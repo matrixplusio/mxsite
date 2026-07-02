@@ -186,9 +186,9 @@ positions:
     location: "深圳 / 远程"
     salary: "面议 · 10–40K"
     title: "安全工程师 · CWPP / EDR 方向"
-    description: "参与 mxsec-platform 核心检测引擎研发，覆盖主机、容器与 Kubernetes 工作负载安全。"
+    description: "参与 mxcwpp 核心检测引擎研发，覆盖主机、容器与 Kubernetes 工作负载安全。"
     responsibilities:
-      - "负责 mxsec-platform 运行时检测能力的设计与研发（eBPF / 系统调用 / 行为基线）"
+      - "负责 mxcwpp 运行时检测能力的设计与研发（eBPF / 系统调用 / 行为基线）"
       - "参与容器与 Kubernetes 安全规则与告警治理"
       - "维护开源仓库，响应社区 Issue 与 PR"
       - "与企业客户驻场团队配合排查真实安全事件"

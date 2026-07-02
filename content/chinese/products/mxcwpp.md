@@ -1,16 +1,16 @@
 ---
-title: "mxsec-platform"
-meta_title: "mxsec-platform — 开源云工作负载保护平台 (CWPP) — MatrixPlus"
-description: "mxsec-platform 是面向云原生时代的开源云工作负载保护平台 (CWPP)，统一保护主机、容器、Kubernetes 与 Serverless 工作负载。已在 3000+ 台主机部署运行。"
+title: "mxcwpp"
+meta_title: "mxcwpp — 开源云工作负载保护平台 (CWPP) — MatrixPlus"
+description: "mxcwpp 是面向云原生时代的开源云工作负载保护平台 (CWPP)，统一保护主机、容器、Kubernetes 与 Serverless 工作负载。已在 3000+ 台主机部署运行。"
 date: 2026-06-06
 draft: false
 ---
 
 ## 概览
 
-**mxsec-platform** 是 MatrixPlus 开源的**云工作负载保护平台（CWPP）**，专为云原生时代的安全防护而设计。它在主机、容器、Kubernetes 与无服务器工作负载之间提供统一的安全防护视角，并把**入侵检测、漏洞管理、基线合规、容器安全、病毒查杀**五大能力收拢到同一套控制面，让 DevSecOps 团队拥有真正可落地的纵深防御能力。
+**mxcwpp** 是 MatrixPlus 开源的**云工作负载保护平台（CWPP）**，专为云原生时代的安全防护而设计。它在主机、容器、Kubernetes 与无服务器工作负载之间提供统一的安全防护视角，并把**入侵检测、漏洞管理、基线合规、容器安全、病毒查杀**五大能力收拢到同一套控制面，让 DevSecOps 团队拥有真正可落地的纵深防御能力。
 
-目前 mxsec-platform 已在 **3000+ 台主机** 上稳定部署运行，覆盖跨国企业海外子公司、政企客户与互联网业务多类典型场景。
+目前 mxcwpp 已在 **3000+ 台主机** 上稳定部署运行，覆盖跨国企业海外子公司、政企客户与互联网业务多类典型场景。
 
 ## 关键指标
 
@@ -24,7 +24,7 @@ draft: false
 
 ## 整体架构
 
-mxsec-platform 采用 **控制面 / 数据面 / 检测面 三层分离** 设计，每一层都独立水平扩展，避免单点瓶颈。
+mxcwpp 采用 **控制面 / 数据面 / 检测面 三层分离** 设计，每一层都独立水平扩展，避免单点瓶颈。
 
 {{< mermaid >}}
 graph LR
@@ -35,7 +35,7 @@ graph LR
     S[Serverless]
   end
 
-  AG[mxsec-agent<br/>eBPF · Plugins · 本地检测]
+  AG[mxcwpp-agent<br/>eBPF · Plugins · 本地检测]
 
   H --> AG
   C --> AG
@@ -127,7 +127,7 @@ graph LR
 
 ## 与 MatrixPlus 生态联动
 
-mxsec-platform 不是孤岛 —— 它与 MatrixPlus 旗下其他三款开源产品天然集成：
+mxcwpp 不是孤岛 —— 它与 MatrixPlus 旗下其他三款开源产品天然集成：
 
 | 联动 | 价值 |
 |------|------|
@@ -155,7 +155,7 @@ mxsec-platform 不是孤岛 —— 它与 MatrixPlus 旗下其他三款开源产
 
 ## 已落地案例
 
-- **某英国上市集团日本子公司** —— mxsec-platform 企业版 + 2 人驻场，1 年 0 入侵
+- **某英国上市集团日本子公司** —— mxcwpp 企业版 + 2 人驻场，1 年 0 入侵
 - **多家政企客户** —— 国家级护网行动期间安全运营支撑
 - **MatrixPlus 自营业务** —— 自营电商体系的全栈防护
 

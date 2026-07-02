@@ -11,7 +11,7 @@ banner:
 
 # Features
 features:
-  - title: "mxsec-platform — Open-source CWPP in production on 3000+ hosts"
+  - title: "mxcwpp — Open-source CWPP in production on 3000+ hosts"
     image: "/images/service-1.png"
     content: "An open-source Cloud Workload Protection Platform built for the cloud-native era — host, container, and Kubernetes coverage in one stack. eBPF runtime detection, vulnerability / baseline / SAST in one platform. Community Edition is fully open source under AGPL-3.0; Enterprise Edition targets production at scale."
     bulletpoints:
@@ -22,14 +22,14 @@ features:
       - "8 Kafka topics + DLQ for domain-level data plane"
     button:
       enable: true
-      label: "Learn about mxsec-platform"
-      link: "/products/mxsec-platform/"
+      label: "Learn about mxcwpp"
+      link: "/products/mxcwpp/"
 
   - title: "An open-source portfolio across assets, security, identity, and operations"
     image: "/images/service-2.png"
     content: "Four MatrixPlus products are open-sourced together and **integrate natively**: security alerts link to assets, generate tickets, run approval flows, and authenticate through unified identity. All AGPL-3.0, Community + Enterprise editions."
     bulletpoints:
-      - "**mxsec-platform** · Cloud Workload Protection (CWPP)"
+      - "**mxcwpp** · Cloud Workload Protection (CWPP)"
       - "**mxid** · Enterprise Identity & Access Management (EIAM)"
       - "**mxcmdb** · IT asset and configuration graph (CMDB)"
       - "**ticketdesk** · Project-based ticketing with alert orchestration"

@@ -45,7 +45,7 @@ resources:
     size: "—"
 
   # 产品手册
-  - title: "mxsec-platform · 产品手册"
+  - title: "mxcwpp · 产品手册"
     category: "datasheet"
     category_label: "产品手册"
     description: "开源云工作负载保护平台 (CWPP) 的能力总览、部署架构与典型场景。"

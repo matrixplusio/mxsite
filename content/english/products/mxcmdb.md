@@ -1,14 +1,14 @@
 ---
 title: "mxcmdb"
 meta_title: "mxcmdb — Open-source IT asset and configuration database (CMDB) — MatrixPlus"
-description: "mxcmdb consolidates enterprise IT assets — domains, servers, services, network devices, certificates — into one graph, with native integration to mxsec, mxid, and ticketdesk."
+description: "mxcmdb consolidates enterprise IT assets — domains, servers, services, network devices, certificates — into one graph, with native integration to mxcwpp, mxid, and ticketdesk."
 date: 2026-06-07
 draft: false
 ---
 
 ## Overview
 
-**mxcmdb** is the MatrixPlus open-source **Configuration Management Database (CMDB)**, built for modern IT and security operations. It pulls asset information out of scripts, spreadsheets, and ad-hoc platforms into **one graph**, so mxsec, mxid, and ticketdesk can all read from the **same source of truth**.
+**mxcmdb** is the MatrixPlus open-source **Configuration Management Database (CMDB)**, built for modern IT and security operations. It pulls asset information out of scripts, spreadsheets, and ad-hoc platforms into **one graph**, so mxcwpp, mxid, and ticketdesk can all read from the **same source of truth**.
 
 A CMDB should not be a passive database. mxcmdb treats itself as a **developer-facing internal API**: every asset is queryable, subscribable, traversable, and audited.
 
@@ -64,7 +64,7 @@ graph LR
   ASSET --> SUB
 
   subgraph CON[Consumers]
-    MXSEC[mxsec-platform<br/>Alert ↔ asset]
+    MXSEC[mxcwpp<br/>Alert ↔ asset]
     MXID[mxid<br/>Identity ↔ entitlement]
     TICKET[ticketdesk<br/>Ticket ↔ asset]
     EXT[External ITSM / SIEM]
@@ -89,7 +89,7 @@ graph LR
 
 ### 2. Automatic discovery + manual upkeep
 
-- Agent reporting: shares the channel with mxsec-agent
+- Agent reporting: shares the channel with mxcwpp-agent
 - Agentless network scanning: for devices and certificates
 - Cloud API sync: Alibaba / Tencent / AWS / GCP / Azure
 - Bulk import: Excel / API / Terraform Provider
@@ -119,7 +119,7 @@ graph LR
 
 | Integration | Value |
 |-------------|-------|
-| **[mxsec-platform](/en/products/mxsec-platform/)** · security | Alerts and vulnerabilities auto-link to assets — blast radius in one glance |
+| **[mxcwpp](/en/products/mxcwpp/)** · security | Alerts and vulnerabilities auto-link to assets — blast radius in one glance |
 | **[mxid](/en/products/mxid/)** · unified identity | Identity-to-entitlement matrix — "who can log into which host" |
 | **[ticketdesk](/en/products/ticketdesk/)** · ticketing | Tickets link to assets; changes and incidents are traceable |
 
@@ -142,7 +142,7 @@ graph LR
 ## Live deployments
 
 - **MatrixPlus self-operated business** — unified asset view across engineering, ops, and commerce
-- **Enterprise customers** — paired with mxsec for asset inventory and vulnerability impact analysis at government/enterprise customers
+- **Enterprise customers** — paired with mxcwpp for asset inventory and vulnerability impact analysis at government/enterprise customers
 
 → [Related case studies](/en/cases/#engineering)
 

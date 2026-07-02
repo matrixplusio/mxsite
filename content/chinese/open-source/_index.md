@@ -19,9 +19,9 @@ label_docs: "文档"
 label_note: "说明"
 
 projects:
-  - key: "mxsec-platform"
+  - key: "mxcwpp"
     tag: "云工作负载保护"
-    name: "mxsec-platform"
+    name: "mxcwpp"
     tagline: "开源云工作负载保护平台 (CWPP)"
     status:
       key: "public"
@@ -30,8 +30,8 @@ projects:
     language: "Go · TypeScript"
     category: "CWPP / 云原生安全"
     repo_url: "https://github.com/matrixplusio"
-    product_url: "/products/mxsec-platform/"
-    description: "mxsec-platform 是面向云原生时代的云工作负载保护平台，提供主机、容器与 Kubernetes 工作负载的统一安全防护视角。社区版完整开源，可审计、可扩展；企业版面向生产规模化客户，提供高可用、多租户与 SLA 支持。"
+    product_url: "/products/mxcwpp/"
+    description: "mxcwpp 是面向云原生时代的云工作负载保护平台，提供主机、容器与 Kubernetes 工作负载的统一安全防护视角。社区版完整开源，可审计、可扩展；企业版面向生产规模化客户，提供高可用、多租户与 SLA 支持。"
     features:
       - "主机、容器、Kubernetes 统一防护"
       - "基于 eBPF 的运行时威胁检测"
@@ -84,7 +84,7 @@ projects:
       - "云资源同步 (阿里 / 腾讯 / AWS / GCP)"
       - "自定义资产类型与字段"
       - "REST API + Webhook"
-      - "与 mxsec / mxid / ticketdesk 原生集成"
+      - "与 mxcwpp / mxid / ticketdesk 原生集成"
       - "审计追溯与变更历史"
     editions:
       - name: "社区版 · Community"
@@ -128,7 +128,7 @@ projects:
       - "可视化工作流编排"
       - "客户自助门户与知识库"
       - "报表、看板与导出"
-      - "与 mxcmdb / mxsec / mxid 联动"
+      - "与 mxcmdb / mxcwpp / mxid 联动"
       - "完整 REST API"
     editions:
       - name: "社区版 · Community"

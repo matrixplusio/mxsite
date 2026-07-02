@@ -1,16 +1,16 @@
 ---
-title: "mxsec-platform"
-meta_title: "mxsec-platform — Open-source Cloud Workload Protection Platform (CWPP) — MatrixPlus"
-description: "mxsec-platform is an open-source Cloud Workload Protection Platform (CWPP) for the cloud-native era — unified protection across hosts, containers, Kubernetes, and serverless workloads. Currently deployed on 3000+ production hosts."
+title: "mxcwpp"
+meta_title: "mxcwpp — Open-source Cloud Workload Protection Platform (CWPP) — MatrixPlus"
+description: "mxcwpp is an open-source Cloud Workload Protection Platform (CWPP) for the cloud-native era — unified protection across hosts, containers, Kubernetes, and serverless workloads. Currently deployed on 3000+ production hosts."
 date: 2026-06-06
 draft: false
 ---
 
 ## Overview
 
-**mxsec-platform** is the MatrixPlus open-source **Cloud Workload Protection Platform (CWPP)**, purpose-built for the cloud-native era. It provides a unified security plane across hosts, containers, Kubernetes, and serverless workloads, and consolidates **runtime detection, vulnerability management, baseline compliance, container security, and antivirus** into a single control plane — so DevSecOps teams can run real defense-in-depth, not just dashboards.
+**mxcwpp** is the MatrixPlus open-source **Cloud Workload Protection Platform (CWPP)**, purpose-built for the cloud-native era. It provides a unified security plane across hosts, containers, Kubernetes, and serverless workloads, and consolidates **runtime detection, vulnerability management, baseline compliance, container security, and antivirus** into a single control plane — so DevSecOps teams can run real defense-in-depth, not just dashboards.
 
-mxsec-platform is currently deployed on **3000+ production hosts**, spanning overseas subsidiaries of multinational groups, government and enterprise customers, and internet-business workloads.
+mxcwpp is currently deployed on **3000+ production hosts**, spanning overseas subsidiaries of multinational groups, government and enterprise customers, and internet-business workloads.
 
 ## Key metrics
 
@@ -24,7 +24,7 @@ mxsec-platform is currently deployed on **3000+ production hosts**, spanning ove
 
 ## Architecture overview
 
-mxsec-platform separates **control plane / data plane / detection plane** into three independently scalable tiers — no single bottleneck.
+mxcwpp separates **control plane / data plane / detection plane** into three independently scalable tiers — no single bottleneck.
 
 {{< mermaid >}}
 graph LR
@@ -35,7 +35,7 @@ graph LR
     S[Serverless]
   end
 
-  AG[mxsec-agent<br/>eBPF · Plugins · Local detection]
+  AG[mxcwpp-agent<br/>eBPF · Plugins · Local detection]
 
   H --> AG
   C --> AG
@@ -127,7 +127,7 @@ graph LR
 
 ## Integration with the MatrixPlus stack
 
-mxsec-platform is not an island — it integrates natively with the other three MatrixPlus open-source products:
+mxcwpp is not an island — it integrates natively with the other three MatrixPlus open-source products:
 
 | Integration | Value |
 |-------------|-------|
@@ -155,7 +155,7 @@ mxsec-platform is not an island — it integrates natively with the other three 
 
 ## Live deployments
 
-- **Japan subsidiary of a UK-listed group** — mxsec-platform Enterprise + 2 on-site engineers, one year, zero breaches
+- **Japan subsidiary of a UK-listed group** — mxcwpp Enterprise + 2 on-site engineers, one year, zero breaches
 - **Government and enterprise customers** — security operations support during national-level red-team exercises
 - **MatrixPlus self-operated business** — full-stack protection for our in-house commerce system
 

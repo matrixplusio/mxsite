@@ -6,4 +6,4 @@ layout: "contact"
 draft: false
 ---
 
-Whether you're rolling out mxsec-platform or evaluating mxid for enterprise identity, we'd be glad to talk.
+Whether you're rolling out mxcwpp or evaluating mxid for enterprise identity, we'd be glad to talk.

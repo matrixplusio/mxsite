@@ -10,7 +10,7 @@ stats:
   - value: "2021"
     label: "公司创立"
   - value: "3000+"
-    label: "mxsec 装机主机"
+    label: "mxcwpp 装机主机"
   - value: "4"
     label: "开源核心产品"
   - value: "40+"
@@ -24,7 +24,7 @@ business_lines:
     title: "网络安全"
     description: "工程驱动的企业安全产品与服务，从开源平台到驻场交付一体化覆盖。"
     points:
-      - "mxsec-platform · 开源云工作负载保护 (CWPP)"
+      - "mxcwpp · 开源云工作负载保护 (CWPP)"
       - "mxid · 企业身份与访问管理 (EIAM)"
       - "安全测试 · 渗透 / 代码审计 / 攻防演练"
       - "驻场服务 · 安全工程师长期驻场支持"
@@ -97,7 +97,7 @@ milestones:
     description: "组建自营直播带货团队，与珠三角源头工厂建立合作；推出多期网络安全、带货主播与电商运营培训，累计服务上千名学员。"
   - date: "2026"
     title: "MatrixPlus 品牌发布 · 四款核心产品开源"
-    description: "推出 MatrixPlus 科技品牌，一次性开源 **mxsec-platform** (CWPP, 已在 3000+ 台主机部署)、**mxid** (EIAM)、**mxcmdb** (CMDB) 与 **ticketdesk** (工单告警) 四款产品 (AGPL-3.0)，形成覆盖资产、安全、身份与运营的完整开源底座。"
+    description: "推出 MatrixPlus 科技品牌，一次性开源 **mxcwpp** (CWPP, 已在 3000+ 台主机部署)、**mxid** (EIAM)、**mxcmdb** (CMDB) 与 **ticketdesk** (工单告警) 四款产品 (AGPL-3.0)，形成覆盖资产、安全、身份与运营的完整开源底座。"
 ---
 
 **MatrixPlus 是字节矩阵（深圳）科技有限公司的科技品牌。**
@@ -106,6 +106,6 @@ milestones:
 
 我们相信好的工程能力适用于任何业务：安全团队为电商搭建数据平台与防风控系统，电商团队的供应链与流量经验让培训内容直接对接真实业务，培训沉淀的方法论又反哺到安全与电商团队。板块之间相互「喂养」，而不是各自为战。
 
-在网络安全与企业 IT 领域，我们坚持开源核心战略，旗下 [**mxsec-platform**](/products/mxsec-platform/) (CWPP，已在 3000+ 台主机部署)、[**mxid**](/products/mxid/) (EIAM)、[**mxcmdb**](/products/mxcmdb/) (CMDB) 与 [**ticketdesk**](/products/ticketdesk/) (工单告警) 形成覆盖资产、安全、身份与运营的完整开源底座，全部 AGPL-3.0 协议开源；在电商领域，我们与东莞、深圳、绍兴的源头工厂合作，覆盖服装、3C、食品等品类；在培训领域，课程内容全部来自一线团队的实战经验。
+在网络安全与企业 IT 领域，我们坚持开源核心战略，旗下 [**mxcwpp**](/products/mxcwpp/) (CWPP，已在 3000+ 台主机部署)、[**mxid**](/products/mxid/) (EIAM)、[**mxcmdb**](/products/mxcmdb/) (CMDB) 与 [**ticketdesk**](/products/ticketdesk/) (工单告警) 形成覆盖资产、安全、身份与运营的完整开源底座，全部 AGPL-3.0 协议开源；在电商领域，我们与东莞、深圳、绍兴的源头工厂合作，覆盖服装、3C、食品等品类；在培训领域，课程内容全部来自一线团队的实战经验。
 
 到目前为止，MatrixPlus 已服务过 **跨国上市集团 · 政府机关 · 央国企 · 外资企业 · 金融机构 · 互联网与 SaaS · 游戏 · 直播电商品牌与工厂** 多类客户。完整的[行业方案](/solutions/)与[客户案例](/cases/)可在对应页面查看。

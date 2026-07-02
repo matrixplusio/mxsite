@@ -111,7 +111,7 @@ _最近更新：2026-06-07 · 生效日期：2026-06-07_
 | jsDelivr CDN | 加载 Mermaid 图表渲染库 | [jsDelivr Privacy](https://www.jsdelivr.com/privacy-policy-jsdelivr-net) |
 | Let's Encrypt | TLS 证书签发 | [Let's Encrypt Privacy](https://letsencrypt.org/privacy/) |
 
-我们的开源产品（[mxsec-platform](/products/mxsec-platform/)、[mxid](/products/mxid/)、[mxcmdb](/products/mxcmdb/)、[ticketdesk](/products/ticketdesk/)）部署在客户自有环境中，其数据处理由客户作为独立的个人信息处理者负责。
+我们的开源产品（[mxcwpp](/products/mxcwpp/)、[mxid](/products/mxid/)、[mxcmdb](/products/mxcmdb/)、[ticketdesk](/products/ticketdesk/)）部署在客户自有环境中，其数据处理由客户作为独立的个人信息处理者负责。
 
 ## 10. 未成年人
 

@@ -9,4 +9,4 @@ social:
     link: https://github.com/matrixplusio
 ---
 
-Engineers, security researchers, and platform builders at Bytematrix (Shenzhen) Technology Co., Ltd. — the team behind **mxsec-platform** and **mxid**.
+Engineers, security researchers, and platform builders at Bytematrix (Shenzhen) Technology Co., Ltd. — the team behind **mxcwpp** and **mxid**.

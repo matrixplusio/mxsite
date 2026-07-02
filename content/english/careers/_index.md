@@ -183,9 +183,9 @@ positions:
     location: "Shenzhen / Remote"
     salary: "Open · 10–40K CNY/mo"
     title: "Security Engineer · CWPP / EDR"
-    description: "Build the mxsec-platform detection engine — covering host, container, and Kubernetes workload security."
+    description: "Build the mxcwpp detection engine — covering host, container, and Kubernetes workload security."
     responsibilities:
-      - "Design and implement runtime detection on mxsec-platform (eBPF / syscalls / behavior baselines)"
+      - "Design and implement runtime detection on mxcwpp (eBPF / syscalls / behavior baselines)"
       - "Maintain container and Kubernetes detection rules and alert governance"
       - "Maintain open-source repository, respond to community issues and pull requests"
       - "Partner with on-site teams at enterprise customers on real incident investigations"

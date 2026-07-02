@@ -10,7 +10,7 @@ stats:
   - value: "2021"
     label: "Founded"
   - value: "3000+"
-    label: "mxsec production hosts"
+    label: "mxcwpp production hosts"
   - value: "4"
     label: "Open-source products"
   - value: "40+"
@@ -24,7 +24,7 @@ business_lines:
     title: "Cybersecurity"
     description: "Engineering-driven enterprise security products and services — from open-source platforms to on-site delivery."
     points:
-      - "mxsec-platform · Open-source CWPP"
+      - "mxcwpp · Open-source CWPP"
       - "mxid · Enterprise Identity & Access Management"
       - "Security testing · pentest / code audit / red team"
       - "On-site services · long-term engineer placement"
@@ -97,7 +97,7 @@ milestones:
     description: "We built an in-house live-commerce team with source-factory partnerships across the region, and ran multiple cohorts of cybersecurity, live-host, and e-commerce-operations training — serving more than a thousand students."
   - date: "2026"
     title: "MatrixPlus brand · four core products open-sourced"
-    description: "We launched the MatrixPlus technology brand and open-sourced four products at once: **mxsec-platform** (CWPP, now running on 3000+ production hosts), **mxid** (EIAM), **mxcmdb** (CMDB), and **ticketdesk** (ticketing & alert orchestration) — all AGPL-3.0, together forming an open-source backbone across assets, security, identity, and operations."
+    description: "We launched the MatrixPlus technology brand and open-sourced four products at once: **mxcwpp** (CWPP, now running on 3000+ production hosts), **mxid** (EIAM), **mxcmdb** (CMDB), and **ticketdesk** (ticketing & alert orchestration) — all AGPL-3.0, together forming an open-source backbone across assets, security, identity, and operations."
 ---
 
 **MatrixPlus is the technology brand of Bytematrix (Shenzhen) Technology Co., Ltd.**
@@ -106,6 +106,6 @@ We were founded on September 27, 2021, in Shenzhen, with our headquarters in the
 
 We believe good engineering applies to any business. Our security team builds data platforms and anti-fraud systems for the commerce team; the commerce team's supply chain and traffic experience grounds our training curriculum; and the methodology distilled from training cycles back into security and commerce. The business lines feed each other, instead of running in parallel.
 
-In cybersecurity and enterprise IT, we follow an open-core strategy — [**mxsec-platform**](/en/products/mxsec-platform/) (CWPP, running on 3000+ production hosts), [**mxid**](/en/products/mxid/) (EIAM), [**mxcmdb**](/en/products/mxcmdb/) (CMDB), and [**ticketdesk**](/en/products/ticketdesk/) (ticketing & alert orchestration) form a complete open-source backbone across assets, security, identity, and operations — all under AGPL-3.0. In e-commerce, we work directly with source factories in Dongguan, Shenzhen, and Shaoxing across apparel, 3C, and food. In training, every piece of curriculum comes straight from our front-line teams.
+In cybersecurity and enterprise IT, we follow an open-core strategy — [**mxcwpp**](/en/products/mxcwpp/) (CWPP, running on 3000+ production hosts), [**mxid**](/en/products/mxid/) (EIAM), [**mxcmdb**](/en/products/mxcmdb/) (CMDB), and [**ticketdesk**](/en/products/ticketdesk/) (ticketing & alert orchestration) form a complete open-source backbone across assets, security, identity, and operations — all under AGPL-3.0. In e-commerce, we work directly with source factories in Dongguan, Shenzhen, and Shaoxing across apparel, 3C, and food. In training, every piece of curriculum comes straight from our front-line teams.
 
 To date, MatrixPlus has served customers across **multinational listed groups · government agencies · central / state-owned enterprises · foreign-invested companies · financial institutions · internet & SaaS · gaming · live-commerce brands and factories**. See the [industry solutions](/en/solutions/) and [case studies](/en/cases/) pages for the full picture.

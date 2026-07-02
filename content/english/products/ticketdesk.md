@@ -10,7 +10,7 @@ draft: false
 
 **ticketdesk** is the MatrixPlus open-source **project-based ticketing and alert orchestration** system, built for ops, security, and engineering teams — **every problem is a ticket, every alert must be followed up.**
 
-It merges Jira-like ticketing, automatic alert-to-ticket, a visual workflow engine, and approval flows into one platform that covers the full lifecycle from "discovered" to "closed". With native integration to mxcmdb / mxsec / mxid, an alert can automatically link to assets, generate a ticket, run an approval flow, and land on the right engineer's desk.
+It merges Jira-like ticketing, automatic alert-to-ticket, a visual workflow engine, and approval flows into one platform that covers the full lifecycle from "discovered" to "closed". With native integration to mxcmdb / mxcwpp / mxid, an alert can automatically link to assets, generate a ticket, run an approval flow, and land on the right engineer's desk.
 
 ## Key metrics
 
@@ -30,7 +30,7 @@ graph LR
   subgraph SRC[Alert & trigger sources]
     PROM[Prometheus<br/>Alertmanager]
     N9E[Nightingale N9E]
-    MXSEC[mxsec-platform<br/>alerts]
+    MXSEC[mxcwpp<br/>alerts]
     WEB[Web UI<br/>manual creation]
   end
 
@@ -109,7 +109,7 @@ graph LR
 
 | Integration | Value |
 |-------------|-------|
-| **[mxsec-platform](/en/products/mxsec-platform/)** · security alerts | One-click alert-to-ticket with full traceability |
+| **[mxcwpp](/en/products/mxcwpp/)** · security alerts | One-click alert-to-ticket with full traceability |
 | **[mxcmdb](/en/products/mxcmdb/)** · asset graph | Tickets link to concrete assets / services / domains |
 | **[mxid](/en/products/mxid/)** · unified identity | SSO login + RBAC sync + operation audit |
 

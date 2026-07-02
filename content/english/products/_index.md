@@ -10,15 +10,15 @@ label_contact: "Talk to sales"
 label_highlights: "Key capabilities"
 
 products:
-  - key: "mxsec-platform"
+  - key: "mxcwpp"
     tag: "Cloud Workload Protection · CWPP"
-    name: "mxsec-platform"
+    name: "mxcwpp"
     tagline: "Cloud-native workload protection platform"
     status:
       key: "ga"
       label: "GA"
     description: "A unified security plane across hosts, containers, and Kubernetes. Runtime detection, vulnerability management, configuration baselines, and compliance audit — one platform. Community Edition is fully open source; Enterprise Edition targets production at scale."
-    detail_url: "/en/products/mxsec-platform/"
+    detail_url: "/en/products/mxcwpp/"
     repo_url: "https://github.com/matrixplusio"
     contact_url: "/en/contact/"
     highlights:
@@ -47,7 +47,7 @@ products:
     status:
       key: "ga"
       label: "GA"
-    description: "Unified management for IT assets and configuration data — domains, servers, services, network devices, certificates — all in one graph, consumed natively by mxsec, mxid, and downstream ticketing."
+    description: "Unified management for IT assets and configuration data — domains, servers, services, network devices, certificates — all in one graph, consumed natively by mxcwpp, mxid, and downstream ticketing."
     detail_url: "/en/products/mxcmdb/"
     repo_url: "https://github.com/matrixplusio"
     contact_url: "/en/contact/"
@@ -58,7 +58,7 @@ products:
       - "Cloud resource sync (Alibaba / Tencent / AWS)"
       - "Flexible custom asset models"
       - "Full REST API + webhooks"
-      - "Native integration with mxsec / mxid"
+      - "Native integration with mxcwpp / mxid"
       - "Audit trail and change history"
     editions:
       - name: "Community Edition"
@@ -77,7 +77,7 @@ products:
     status:
       key: "ga"
       label: "GA"
-    description: "Open-source ticketing for IT, security, and customer support teams — multi-channel intake, SLA management, automated workflows, and a customer portal. Works with mxcmdb / mxsec / mxid out of the box for a full operations loop."
+    description: "Open-source ticketing for IT, security, and customer support teams — multi-channel intake, SLA management, automated workflows, and a customer portal. Works with mxcmdb / mxcwpp / mxid out of the box for a full operations loop."
     detail_url: "/en/products/ticketdesk/"
     repo_url: "https://github.com/matrixplusio"
     contact_url: "/en/contact/"
