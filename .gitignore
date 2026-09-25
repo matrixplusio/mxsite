@@ -35,3 +35,9 @@ jsconfig.json
 # AI assistant instructions (kept local, never pushed)
 CLAUDE.md
 .claude/
+
+# 本地文件，不进仓库：带环境细节的东西只留在工作区
+/CLAUDE.md
+/docs/internal/
+/hack/internal-data-patterns.local.txt
+/local.mk
